@@ -2,18 +2,20 @@ import SpriteKit
 import CoreMotion
 import UIKit
 
-var sceneColor = UIColor(red: 0.6, green: 0.6, blue: 1.0,
-                         alpha: 1.0)
-var pedometer = CMPedometer()
-var distance:Double! = nil
-var averagePace:Double! = nil
-var pace:Double! = nil
-var numberOfSteps:Int! = nil
-var timer = Timer()
-var timerInterval = 1.0
-var timeElapsed:TimeInterval = 1.0
 
-class GameScene: SKScene {
+
+@objcMembers class GameScene: SKScene {
+    var sceneColor = UIColor(red: 0.6, green: 0.6, blue: 1.0,
+                             alpha: 1.0)
+    var pedometer = CMPedometer()
+    var distance:Double! = nil
+    var averagePace:Double! = nil
+    var pace:Double! = nil
+    var numberOfSteps:Int! = nil
+    var timer = Timer()
+    var timerInterval = 1.0
+    var timeElapsed:TimeInterval = 1.0
+    
     
     let title = SKLabelNode(text: "Walking Challenge RPG")
     let stepText = SKLabelNode(text: "Steps Walked")
@@ -22,7 +24,7 @@ class GameScene: SKScene {
     let challengeText = SKLabelNode(text: "Active Challenges")
     let buttonTexture = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 100))
     let statusTitle = SKLabelNode(text: "Text")
-    let stepsLabel = SKLabelNode(text: "steps")
+    let stepsLabel = SKLabelNode(text: "How much gold will you generate?")
     let avgPaceLabel = SKLabelNode(text: "avgPace")
     let paceLabel = SKLabelNode(text: "pace")
     let distanceLabel = SKLabelNode(text: "distance")
@@ -37,17 +39,28 @@ class GameScene: SKScene {
             return String(format:"%02i:%02i:%02i",hours,minutes,seconds)
         }
     
+    func timerAction(timer:Timer) {
+        displayPedometerData()
+    }
+    
+    func startTimer(){
+            if timer.isValid { timer.invalidate() }
+            timer = Timer.scheduledTimer(timeInterval: timerInterval,target: self,selector: #selector(timerAction(timer:)) ,userInfo: nil,repeats: true)
+        }
+    
+
+    
     
     func displayData()
     {
 //        stepsLabel.text = String(format: "%i", numberOfSteps)
         pedometer.startUpdates(from: Date(), withHandler: { (pedometerData, error) in
                         if let pedData = pedometerData{
-                            numberOfSteps = Int(truncating: pedData.numberOfSteps)
+                            self.numberOfSteps = Int(truncating: pedData.numberOfSteps)
                             //self.stepsLabel.text = "Steps:\(pedData.numberOfSteps)"
                             
                         } else {
-                            numberOfSteps = nil
+                            self.numberOfSteps = nil
                         }
                     })
     }
@@ -55,10 +68,10 @@ class GameScene: SKScene {
     func displayPedometerData()
     {
             timeElapsed += 1.0
-            statusTitle.text = "On: " + timeIntervalFormat(interval: timeElapsed)
-            //Number of steps
-             
-                stepsLabel.text = String(format:"Steps: %i",numberOfSteps)
+        if let numberOfSteps = self.numberOfSteps{
+                    stepsLabel.text = String(format:"%i",numberOfSteps)
+        }
+        
     }
     
     override func didMove(to view: SKView) {
@@ -87,10 +100,10 @@ class GameScene: SKScene {
         challengeText.fontColor = SKColor.black
         challengeText.fontName = "Helvetica"
         
-        buttonTexture.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 6.1)
+        buttonTexture.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 7.2)
         buttonTexture.size = CGSize(width: view.frame.width / 1.5, height: view.frame.height / 8)
         
-        buttonText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 6.0)
+        buttonText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 7.4)
         buttonText.fontSize = 23
         buttonText.fontColor = SKColor.white
         buttonText.fontName = "Courier New Bold"
@@ -103,7 +116,10 @@ class GameScene: SKScene {
     addChild(buttonText)
     addChild(stepsLabel)
         
+        
+        startTimer()
         displayData()
+    
         
     }
  
