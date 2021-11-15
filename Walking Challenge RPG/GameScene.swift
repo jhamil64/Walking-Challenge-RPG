@@ -1,3 +1,7 @@
+//  Pedometer related code was created by Steven Lipton on 2/10/17.
+//  Technically, it is not the same anymore because we had to make many edits, but better safe than sorry.
+//
+
 import SpriteKit
 import CoreMotion
 import UIKit
