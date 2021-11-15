@@ -24,7 +24,7 @@ import UIKit
     let challengeText = SKLabelNode(text: "Active Challenges")
     let buttonTexture = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 100))
     let statusTitle = SKLabelNode(text: "Text")
-    let stepsLabel = SKLabelNode(text: "How much gold will you generate?")
+    let stepsLabel = SKLabelNode(text: "(Steps This Session)")
     let avgPaceLabel = SKLabelNode(text: "avgPace")
     let paceLabel = SKLabelNode(text: "pace")
     let distanceLabel = SKLabelNode(text: "distance")
@@ -79,6 +79,9 @@ import UIKit
         self.backgroundColor = sceneColor
         
         stepsLabel.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.7)
+        stepsLabel.fontSize = 21
+        stepsLabel.fontColor = SKColor.white
+        stepsLabel.fontName = "Helvetica"
         
         title.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.2)
         title.fontSize = 26
@@ -89,6 +92,8 @@ import UIKit
         stepText.fontSize = 21
         stepText.fontColor = SKColor.black
         stepText.fontName = "Helvetica"
+        
+        
         
         moneyText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2.0)
         moneyText.fontSize = 21
