@@ -32,6 +32,8 @@ import UIKit
     let avgPaceLabel = SKLabelNode(text: "avgPace")
     let paceLabel = SKLabelNode(text: "pace")
     let distanceLabel = SKLabelNode(text: "distance")
+   
+ 
     
 
      
