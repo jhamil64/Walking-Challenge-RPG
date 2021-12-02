@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2810D192758776B00C7ACA8 /* CastleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2810D182758776B00C7ACA8 /* CastleMenu.swift */; };
 		C28FA54227309B3500477004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54127309B3500477004 /* AppDelegate.swift */; };
-		C28FA54827309B3500477004 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54727309B3500477004 /* GameScene.swift */; };
+		C28FA54827309B3500477004 /* TitleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54727309B3500477004 /* TitleScreen.swift */; };
 		C28FA54A27309B3500477004 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54927309B3500477004 /* GameViewController.swift */; };
 		C28FA54D27309B3500477004 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C28FA54B27309B3500477004 /* Main.storyboard */; };
 		C28FA54F27309B3700477004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C28FA54E27309B3700477004 /* Assets.xcassets */; };
@@ -16,9 +17,10 @@
 
 /* Begin PBXFileReference section */
 		C2810D122756D46E00C7ACA8 /* Walking Challenge RPG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Walking Challenge RPG-Bridging-Header.h"; sourceTree = "<group>"; };
+		C2810D182758776B00C7ACA8 /* CastleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastleMenu.swift; sourceTree = "<group>"; };
 		C28FA53E27309B3500477004 /* Walking Challenge RPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walking Challenge RPG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28FA54127309B3500477004 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C28FA54727309B3500477004 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		C28FA54727309B3500477004 /* TitleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreen.swift; sourceTree = "<group>"; };
 		C28FA54927309B3500477004 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C28FA54C27309B3500477004 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C28FA54E27309B3700477004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				C28FA54127309B3500477004 /* AppDelegate.swift */,
-				C28FA54727309B3500477004 /* GameScene.swift */,
+				C28FA54727309B3500477004 /* TitleScreen.swift */,
+				C2810D182758776B00C7ACA8 /* CastleMenu.swift */,
 				C28FA54927309B3500477004 /* GameViewController.swift */,
 				C28FA54B27309B3500477004 /* Main.storyboard */,
 				C28FA54E27309B3700477004 /* Assets.xcassets */,
@@ -136,7 +139,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28FA54827309B3500477004 /* GameScene.swift in Sources */,
+				C2810D192758776B00C7ACA8 /* CastleMenu.swift in Sources */,
+				C28FA54827309B3500477004 /* TitleScreen.swift in Sources */,
 				C28FA54A27309B3500477004 /* GameViewController.swift in Sources */,
 				C28FA54227309B3500477004 /* AppDelegate.swift in Sources */,
 			);
