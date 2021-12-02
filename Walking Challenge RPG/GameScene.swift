@@ -9,6 +9,7 @@ import UIKit
 
 
 @objcMembers class GameScene: SKScene {
+
     var sceneColor = UIColor(red: 0.6, green: 0.6, blue: 1.0,
                              alpha: 1.0)
     var pedometer = CMPedometer()
@@ -32,10 +33,8 @@ import UIKit
     let avgPaceLabel = SKLabelNode(text: "avgPace")
     let paceLabel = SKLabelNode(text: "pace")
     let distanceLabel = SKLabelNode(text: "distance")
-   
- 
-    
 
+    
      
     func timeIntervalFormat(interval:TimeInterval)-> String{
             var seconds = Int(interval + 0.5) //round up seconds

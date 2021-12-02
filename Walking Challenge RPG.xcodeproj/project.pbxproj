@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C2810D152756D46F00C7ACA8 /* RWGameData.m in Sources */ = {isa = PBXBuildFile; fileRef = C2810D142756D46F00C7ACA8 /* RWGameData.m */; };
 		C28FA54227309B3500477004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54127309B3500477004 /* AppDelegate.swift */; };
 		C28FA54827309B3500477004 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54727309B3500477004 /* GameScene.swift */; };
 		C28FA54A27309B3500477004 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54927309B3500477004 /* GameViewController.swift */; };
@@ -17,8 +16,6 @@
 
 /* Begin PBXFileReference section */
 		C2810D122756D46E00C7ACA8 /* Walking Challenge RPG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Walking Challenge RPG-Bridging-Header.h"; sourceTree = "<group>"; };
-		C2810D132756D46F00C7ACA8 /* RWGameData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWGameData.h; sourceTree = "<group>"; };
-		C2810D142756D46F00C7ACA8 /* RWGameData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWGameData.m; sourceTree = "<group>"; };
 		C28FA53E27309B3500477004 /* Walking Challenge RPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walking Challenge RPG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28FA54127309B3500477004 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C28FA54727309B3500477004 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -60,8 +57,6 @@
 			children = (
 				C28FA54127309B3500477004 /* AppDelegate.swift */,
 				C28FA54727309B3500477004 /* GameScene.swift */,
-				C2810D132756D46F00C7ACA8 /* RWGameData.h */,
-				C2810D142756D46F00C7ACA8 /* RWGameData.m */,
 				C28FA54927309B3500477004 /* GameViewController.swift */,
 				C28FA54B27309B3500477004 /* Main.storyboard */,
 				C28FA54E27309B3700477004 /* Assets.xcassets */,
@@ -141,7 +136,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2810D152756D46F00C7ACA8 /* RWGameData.m in Sources */,
 				C28FA54827309B3500477004 /* GameScene.swift in Sources */,
 				C28FA54A27309B3500477004 /* GameViewController.swift in Sources */,
 				C28FA54227309B3500477004 /* AppDelegate.swift in Sources */,
