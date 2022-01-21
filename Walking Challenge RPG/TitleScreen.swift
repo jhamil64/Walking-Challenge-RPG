@@ -56,13 +56,11 @@ class Button: SKSpriteNode {
     var averagePace:Double! = nil
     var pace:Double! = nil
     var numberOfSteps:Int! = nil
-    var runningTotal:Int! = nil
+    var stepDifference:Int! = nil
     var timer = Timer()
     var timerInterval = 1.0
     var timeElapsed:TimeInterval = 1.0
     var goldSaver = UserDefaults.standard
-    var stepSaver = UserDefaults.standard
-    var oneTime = true
     
     
     
@@ -124,16 +122,15 @@ class Button: SKSpriteNode {
  
         if let numberOfSteps = self.numberOfSteps{
                     stepsLabel.text = String(format:"%i",numberOfSteps)
-            let gold1 = Int(self.numberOfSteps)
+            let stepCheck1 = Int(self.numberOfSteps)
             do{
-                sleep(1);
+                sleep(2);
             }
             
-            let gold2 = Int(self.numberOfSteps)
-            self.runningTotal = Int?(gold2 - gold1)
-            let currentGold = goldSaver.integer(forKey: "Gold")+self.runningTotal
+            let stepCheck2 = Int(self.numberOfSteps)
+            self.stepDifference = Int?(stepCheck2 - stepCheck1)
+            let currentGold = goldSaver.integer(forKey: "Gold")+self.stepDifference
             goldSaver.set(currentGold, forKey: "Gold")
-            oneTime = false;
             currentGoldLabel.text = String(format:"%i",currentGold)
         }
 
@@ -212,6 +209,7 @@ class Button: SKSpriteNode {
     addChild(currentGoldLabel)
         
         goldSaver.set(self.goldSaver.integer(forKey: "Gold"), forKey: "Gold")
+        currentGoldLabel.text = String(format:"%i",goldSaver.integer(forKey: "Gold"))
         startTimer()
 
         displayData()
