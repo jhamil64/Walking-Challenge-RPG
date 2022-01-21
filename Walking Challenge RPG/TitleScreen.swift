@@ -56,9 +56,14 @@ class Button: SKSpriteNode {
     var averagePace:Double! = nil
     var pace:Double! = nil
     var numberOfSteps:Int! = nil
+    var runningTotal:Int! = nil
     var timer = Timer()
     var timerInterval = 1.0
     var timeElapsed:TimeInterval = 1.0
+    var goldSaver = UserDefaults.standard
+    var stepSaver = UserDefaults.standard
+    var oneTime = true
+    
     
     
     let title = SKLabelNode(text: "Walking Challenge RPG")
@@ -72,6 +77,7 @@ class Button: SKSpriteNode {
     let avgPaceLabel = SKLabelNode(text: "avgPace")
     let paceLabel = SKLabelNode(text: "pace")
     let distanceLabel = SKLabelNode(text: "distance")
+    let currentGoldLabel = SKLabelNode(text: "Current Gold")
 
     
      
@@ -101,7 +107,11 @@ class Button: SKSpriteNode {
         pedometer.startUpdates(from: Date(), withHandler: { (pedometerData, error) in
                         if let pedData = pedometerData{
                             self.numberOfSteps = Int(truncating: pedData.numberOfSteps)
-                            //self.stepsLabel.text = "Steps:\(pedData.numberOfSteps)"
+                            
+                             
+//                            //self.stepsLabel.text = "Steps:\(pedData.numberOfSteps)"
+//                            stepSaver = numberOfSteps as NSInteger?
+//                            stepsLabel.text = Int?(self.stepSaver)
                             
                         } else {
                             self.numberOfSteps = nil
@@ -111,12 +121,28 @@ class Button: SKSpriteNode {
     
     func displayPedometerData()
     {
-            timeElapsed += 1.0
+ 
         if let numberOfSteps = self.numberOfSteps{
                     stepsLabel.text = String(format:"%i",numberOfSteps)
+            let gold1 = Int(self.numberOfSteps)
+            do{
+                sleep(1);
+            }
+            
+            let gold2 = Int(self.numberOfSteps)
+            self.runningTotal = Int?(gold2 - gold1)
+            let currentGold = goldSaver.integer(forKey: "Gold")+self.runningTotal
+            goldSaver.set(currentGold, forKey: "Gold")
+            oneTime = false;
+            currentGoldLabel.text = String(format:"%i",currentGold)
         }
+
+    
+        
         
     }
+    
+
     
         override func didMove(to view: SKView) {
             
@@ -169,6 +195,11 @@ class Button: SKSpriteNode {
         challengeText.fontColor = SKColor.black
         challengeText.fontName = "Helvetica"
         
+        currentGoldLabel.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2.33)
+        currentGoldLabel.fontSize = 21
+        currentGoldLabel.fontColor = SKColor.yellow
+        currentGoldLabel.fontName = "Helvetica"
+        
         
         
     addChild(title)
@@ -178,15 +209,17 @@ class Button: SKSpriteNode {
 //    addChild(buttonTexture)
     addChild(buttonText)
     addChild(stepsLabel)
+    addChild(currentGoldLabel)
         
-        
+        goldSaver.set(self.goldSaver.integer(forKey: "Gold"), forKey: "Gold")
         startTimer()
+
         displayData()
     
         
     }
         
-    
+     
     func buttonClicked(sender: Button) {
         let transition:SKTransition = SKTransition.fade(withDuration: 1)
         let scene: SKScene = CastleMenu(size: self.size)
