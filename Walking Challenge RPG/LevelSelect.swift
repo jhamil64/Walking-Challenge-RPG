@@ -2,9 +2,9 @@
 import Foundation
 import SpriteKit
 
-class CastleMenu: SKScene {
+class LevelSelect: SKScene {
     
-    var sceneColor = UIColor(red: 0.6, green: 1.0, blue: 0.6,
+    var sceneColor = UIColor(red: 0.4, green: 1.0, blue: 0.4,
                              alpha: 1.0)
     let title = SKLabelNode(text: "Walking Challenge RPG")
     override func didMove(to view: SKView) {
