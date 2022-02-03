@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C2050CBA27AC766B00188DA4 /* InventoryTestApp in Resources */ = {isa = PBXBuildFile; fileRef = C2050CB927AC766B00188DA4 /* InventoryTestApp */; };
 		C2050CBC27AC7C1300188DA4 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CBB27AC7C1200188DA4 /* GameState.swift */; };
 		C2050CBE27AC7CA300188DA4 /* InventoryItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CBD27AC7CA300188DA4 /* InventoryItemNode.swift */; };
 		C2050CC027AC7CAB00188DA4 /* InventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CBF27AC7CAB00188DA4 /* InventoryScene.swift */; };
@@ -25,10 +24,10 @@
 		C28FA54F27309B3700477004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C28FA54E27309B3700477004 /* Assets.xcassets */; };
 		C2F8087327A6532C008E7641 /* WorldMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F8087227A6532C008E7641 /* WorldMap.swift */; };
 		C2F8087527A65D99008E7641 /* LevelSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F8087427A65D99008E7641 /* LevelSelect.swift */; };
+		C2FD484527AC8618005F802C /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FD484427AC8618005F802C /* InventoryItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C2050CB927AC766B00188DA4 /* InventoryTestApp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = InventoryTestApp; sourceTree = "<group>"; };
 		C2050CBB27AC7C1200188DA4 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		C2050CBD27AC7CA300188DA4 /* InventoryItemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemNode.swift; sourceTree = "<group>"; };
 		C2050CBF27AC7CAB00188DA4 /* InventoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryScene.swift; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		C28FA55027309B3700477004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2F8087227A6532C008E7641 /* WorldMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldMap.swift; sourceTree = "<group>"; };
 		C2F8087427A65D99008E7641 /* LevelSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelect.swift; sourceTree = "<group>"; };
+		C2FD484427AC8618005F802C /* InventoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +81,7 @@
 		C28FA54027309B3500477004 /* Walking Challenge RPG */ = {
 			isa = PBXGroup;
 			children = (
+				C2FD484427AC8618005F802C /* InventoryItem.swift */,
 				C28FA54127309B3500477004 /* AppDelegate.swift */,
 				C28FA54727309B3500477004 /* TitleScreen.swift */,
 				C2810D182758776B00C7ACA8 /* CastleMenu.swift */,
@@ -94,7 +95,6 @@
 				C2050CC527AC7CBC00188DA4 /* SecondaryInventoryScene.swift */,
 				C2050CC727AC7CC000188DA4 /* SecondaryInventoryViewController.swift */,
 				C2050CC927AC7CC500188DA4 /* SlotsSpriteNode.swift */,
-				C2050CB927AC766B00188DA4 /* InventoryTestApp */,
 				C28FA54927309B3500477004 /* GameViewController.swift */,
 				C2229E4C277EBFB200146FAE /* GameObjects.swift */,
 				C28FA54B27309B3500477004 /* Main.storyboard */,
@@ -163,7 +163,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2050CBA27AC766B00188DA4 /* InventoryTestApp in Resources */,
 				C28FA54D27309B3500477004 /* Main.storyboard in Resources */,
 				C28FA54F27309B3700477004 /* Assets.xcassets in Resources */,
 			);
@@ -187,6 +186,7 @@
 				C28FA54A27309B3500477004 /* GameViewController.swift in Sources */,
 				C2050CBE27AC7CA300188DA4 /* InventoryItemNode.swift in Sources */,
 				C2050CC427AC7CB500188DA4 /* MenuButton.swift in Sources */,
+				C2FD484527AC8618005F802C /* InventoryItem.swift in Sources */,
 				C2050CC827AC7CC000188DA4 /* SecondaryInventoryViewController.swift in Sources */,
 				C2050CBC27AC7C1300188DA4 /* GameState.swift in Sources */,
 				C2F8087327A6532C008E7641 /* WorldMap.swift in Sources */,

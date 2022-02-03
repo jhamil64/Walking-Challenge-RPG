@@ -22,7 +22,7 @@ class InventoryScene: SKScene, InventoryItemNodeProtocol {
     
     override func didMove(to view: SKView) {
         
-        NSNotificationCenter.defaultCenter.addObserver(self, selector: "updateEquippedSlots", name: "com.davidwnorman.updateEquippedSlots", object: nil)
+        NotificationCenter.default.addObserver(self, selector: "updateEquippedSlots", name: "com.davidwnorman.updateEquippedSlots", object: nil)
         
         let squareWidth = CGFloat(50)
         let rows = EquippedSlotsConfig.numberOfRows

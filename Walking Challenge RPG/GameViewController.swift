@@ -35,7 +35,7 @@ class GameViewController: UIViewController {
     @IBAction func addSword(sender: AnyObject) {
         let foundItem = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.sword_silver)
         foundItem?.numberInStack += 1
-        NotificationCenter.default.post(NSNotification(name:NSNotification.Name(rawValue: "com.davidwnorman.updateEquippedSlots"), object: nil) as Notification)
+        NotificationCenter.default.post(name:Notification.Name("com.davidwnorman.updateEquippedSlots"), object: nil)
     }
 
  

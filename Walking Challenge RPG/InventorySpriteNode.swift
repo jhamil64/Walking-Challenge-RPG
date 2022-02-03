@@ -10,9 +10,9 @@
     import SpriteKit
     
     extension Dictionary {
-        mutating func map(transform: (key:Key, value:Value) -> (Value)) {
+        mutating func map(transform: (_ key:Key, _ value:Value) -> (Value)) {
             for key in self.keys {
-                let newValue = transform(key: key, value: self[key]!)
+                let newValue = transform(key, self[key]!)
                 self.updateValue(newValue, forKey: key)
             }
         }
@@ -32,7 +32,7 @@
         //MARK: - Lifecycle 
         
         init(size: CGSize) {
-            super.init(texture:nil, color: UIColor.clearColor(), size: size)
+            super.init(texture:nil, color: UIColor.clear, size: size)
         }
         
         
