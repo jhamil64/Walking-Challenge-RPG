@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2050CBA27AC766B00188DA4 /* InventoryTestApp in Resources */ = {isa = PBXBuildFile; fileRef = C2050CB927AC766B00188DA4 /* InventoryTestApp */; };
 		C2229E4D277EBFB200146FAE /* GameObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2229E4C277EBFB200146FAE /* GameObjects.swift */; };
 		C2810D192758776B00C7ACA8 /* CastleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2810D182758776B00C7ACA8 /* CastleMenu.swift */; };
 		C28FA54227309B3500477004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54127309B3500477004 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C2050CB927AC766B00188DA4 /* InventoryTestApp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = InventoryTestApp; sourceTree = "<group>"; };
 		C2229E4C277EBFB200146FAE /* GameObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObjects.swift; sourceTree = "<group>"; };
 		C2810D122756D46E00C7ACA8 /* Walking Challenge RPG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Walking Challenge RPG-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2810D182758776B00C7ACA8 /* CastleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastleMenu.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				C2810D182758776B00C7ACA8 /* CastleMenu.swift */,
 				C2F8087227A6532C008E7641 /* WorldMap.swift */,
 				C2F8087427A65D99008E7641 /* LevelSelect.swift */,
+				C2050CB927AC766B00188DA4 /* InventoryTestApp */,
 				C28FA54927309B3500477004 /* GameViewController.swift */,
 				C2229E4C277EBFB200146FAE /* GameObjects.swift */,
 				C28FA54B27309B3500477004 /* Main.storyboard */,
@@ -136,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2050CBA27AC766B00188DA4 /* InventoryTestApp in Resources */,
 				C28FA54D27309B3500477004 /* Main.storyboard in Resources */,
 				C28FA54F27309B3700477004 /* Assets.xcassets in Resources */,
 			);
