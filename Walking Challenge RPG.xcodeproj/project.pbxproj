@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		C2050CBA27AC766B00188DA4 /* InventoryTestApp in Resources */ = {isa = PBXBuildFile; fileRef = C2050CB927AC766B00188DA4 /* InventoryTestApp */; };
+		C2050CBC27AC7C1300188DA4 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CBB27AC7C1200188DA4 /* GameState.swift */; };
+		C2050CBE27AC7CA300188DA4 /* InventoryItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CBD27AC7CA300188DA4 /* InventoryItemNode.swift */; };
+		C2050CC027AC7CAB00188DA4 /* InventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CBF27AC7CAB00188DA4 /* InventoryScene.swift */; };
+		C2050CC227AC7CB000188DA4 /* InventorySpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CC127AC7CB000188DA4 /* InventorySpriteNode.swift */; };
+		C2050CC427AC7CB500188DA4 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CC327AC7CB500188DA4 /* MenuButton.swift */; };
+		C2050CC627AC7CBC00188DA4 /* SecondaryInventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CC527AC7CBC00188DA4 /* SecondaryInventoryScene.swift */; };
+		C2050CC827AC7CC000188DA4 /* SecondaryInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CC727AC7CC000188DA4 /* SecondaryInventoryViewController.swift */; };
+		C2050CCA27AC7CC500188DA4 /* SlotsSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CC927AC7CC500188DA4 /* SlotsSpriteNode.swift */; };
 		C2229E4D277EBFB200146FAE /* GameObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2229E4C277EBFB200146FAE /* GameObjects.swift */; };
 		C2810D192758776B00C7ACA8 /* CastleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2810D182758776B00C7ACA8 /* CastleMenu.swift */; };
 		C28FA54227309B3500477004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54127309B3500477004 /* AppDelegate.swift */; };
@@ -21,6 +29,14 @@
 
 /* Begin PBXFileReference section */
 		C2050CB927AC766B00188DA4 /* InventoryTestApp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = InventoryTestApp; sourceTree = "<group>"; };
+		C2050CBB27AC7C1200188DA4 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		C2050CBD27AC7CA300188DA4 /* InventoryItemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItemNode.swift; sourceTree = "<group>"; };
+		C2050CBF27AC7CAB00188DA4 /* InventoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryScene.swift; sourceTree = "<group>"; };
+		C2050CC127AC7CB000188DA4 /* InventorySpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventorySpriteNode.swift; sourceTree = "<group>"; };
+		C2050CC327AC7CB500188DA4 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		C2050CC527AC7CBC00188DA4 /* SecondaryInventoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInventoryScene.swift; sourceTree = "<group>"; };
+		C2050CC727AC7CC000188DA4 /* SecondaryInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInventoryViewController.swift; sourceTree = "<group>"; };
+		C2050CC927AC7CC500188DA4 /* SlotsSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsSpriteNode.swift; sourceTree = "<group>"; };
 		C2229E4C277EBFB200146FAE /* GameObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObjects.swift; sourceTree = "<group>"; };
 		C2810D122756D46E00C7ACA8 /* Walking Challenge RPG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Walking Challenge RPG-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2810D182758776B00C7ACA8 /* CastleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastleMenu.swift; sourceTree = "<group>"; };
@@ -70,6 +86,14 @@
 				C2810D182758776B00C7ACA8 /* CastleMenu.swift */,
 				C2F8087227A6532C008E7641 /* WorldMap.swift */,
 				C2F8087427A65D99008E7641 /* LevelSelect.swift */,
+				C2050CBB27AC7C1200188DA4 /* GameState.swift */,
+				C2050CBD27AC7CA300188DA4 /* InventoryItemNode.swift */,
+				C2050CBF27AC7CAB00188DA4 /* InventoryScene.swift */,
+				C2050CC127AC7CB000188DA4 /* InventorySpriteNode.swift */,
+				C2050CC327AC7CB500188DA4 /* MenuButton.swift */,
+				C2050CC527AC7CBC00188DA4 /* SecondaryInventoryScene.swift */,
+				C2050CC727AC7CC000188DA4 /* SecondaryInventoryViewController.swift */,
+				C2050CC927AC7CC500188DA4 /* SlotsSpriteNode.swift */,
 				C2050CB927AC766B00188DA4 /* InventoryTestApp */,
 				C28FA54927309B3500477004 /* GameViewController.swift */,
 				C2229E4C277EBFB200146FAE /* GameObjects.swift */,
@@ -153,10 +177,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2229E4D277EBFB200146FAE /* GameObjects.swift in Sources */,
+				C2050CC627AC7CBC00188DA4 /* SecondaryInventoryScene.swift in Sources */,
 				C2810D192758776B00C7ACA8 /* CastleMenu.swift in Sources */,
+				C2050CCA27AC7CC500188DA4 /* SlotsSpriteNode.swift in Sources */,
 				C2F8087527A65D99008E7641 /* LevelSelect.swift in Sources */,
+				C2050CC027AC7CAB00188DA4 /* InventoryScene.swift in Sources */,
 				C28FA54827309B3500477004 /* TitleScreen.swift in Sources */,
+				C2050CC227AC7CB000188DA4 /* InventorySpriteNode.swift in Sources */,
 				C28FA54A27309B3500477004 /* GameViewController.swift in Sources */,
+				C2050CBE27AC7CA300188DA4 /* InventoryItemNode.swift in Sources */,
+				C2050CC427AC7CB500188DA4 /* MenuButton.swift in Sources */,
+				C2050CC827AC7CC000188DA4 /* SecondaryInventoryViewController.swift in Sources */,
+				C2050CBC27AC7C1300188DA4 /* GameState.swift in Sources */,
 				C2F8087327A6532C008E7641 /* WorldMap.swift in Sources */,
 				C28FA54227309B3500477004 /* AppDelegate.swift in Sources */,
 			);
