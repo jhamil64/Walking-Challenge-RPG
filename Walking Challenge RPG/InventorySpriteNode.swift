@@ -52,32 +52,32 @@
             let columns = InventoryConfig.numberOfColumns
             let rows = InventoryConfig.numberOfRows
             let squareWidth = CGFloat(50)
-            self.size = CGSizeMake(parent!.frame.size.width, CGFloat(rows) * squareWidth)
-            self.anchorPoint = CGPointMake(0.5,0.5)
-            self.position = CGPointMake(0, 0)
-            self.color = UIColor.blackColor()
+            self.size = CGSize(width: parent!.frame.size.width, height: CGFloat(rows) * squareWidth)
+            self.anchorPoint = CGPoint(x: 0.5,y: 0.5)
+            self.position = CGPoint(x: 0, y: 0)
+            self.color = UIColor.black
             
             var overallCount = 0
             
-            for var i = 0; i < columns; i++ {
-                for var j = 0; j < rows; j++ {
-                    let inventoryItemNode = InventoryItemNode(rectOfSize: CGSize(width: squareWidth, height: squareWidth))
+            for i in 0 ..< columns {
+                for j in 0 ..< rows {
+                    let inventoryItemNode = InventoryItemNode(rectOf: CGSize(width: squareWidth, height: squareWidth))
                     inventoryItemNode.delegate = self
                     let updatedX = self.frame.origin.x + (CGFloat(inventoryItemNode.frame.size.width) / CGFloat(2)) + squareWidth * CGFloat(i)
                     let updatedY = CGFloat(self.frame.size.height - (CGFloat(inventoryItemNode.frame.size.height))) / CGFloat(2) - (squareWidth * CGFloat(j))
                     inventoryItemNode.position = CGPoint(x:updatedX, y:updatedY )
-                    inventoryItemNode.fillColor = UIColor.blackColor()
-                    inventoryItemNode.strokeColor = UIColor.whiteColor()
+                    inventoryItemNode.fillColor = UIColor.black
+                    inventoryItemNode.strokeColor = UIColor.white
                     inventoryItemNode.lineWidth = 2.0
                     inventoryItemNode.number = overallCount
-                    overallCount++
+                    overallCount+=1
                     
                     self.addChild(inventoryItemNode)
                     
                     if tempInvArray.count > 0 {
                         let item = tempInvArray.removeFirst()
                         inventoryItemNode.itemName = InventoryItemName(rawValue:item.imageName!)
-                        inventoryItemNode.updateWithItem(item)
+                        inventoryItemNode.updateWithItem(item: item)
                         
                     }
                 }
@@ -88,28 +88,28 @@
             for node in self.children as! [InventoryItemNode] {
                 //slot and inv node selected
                 if node.selected && self.delegate?.selectedNode() != nil {
-                    self.swapInvAndSlot(node)
+                    self.swapInvAndSlot(selectedInvNode: node)
                 }
             }
-            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name:"com.davidwnorman.updateEquippedSlots", object: nil))
+            NotificationCenter.default.post(name:Notification.Name("com.davidwnorman.updateEquippedSlots"), object: nil)
         }
         
         func swapInvAndSlot(selectedInvNode: InventoryItemNode) {
             let slot = self.delegate?.selectedNode()
             let tempSlotNode = slot!.copy() as! InventoryItemNode
             let tempInvNode = selectedInvNode.copy() as! InventoryItemNode
-            self.updateInvetoryNode(tempSlotNode.item, childIndex: tempInvNode.number)
-            self.delegate?.updateSlot(tempInvNode.item, childIndex: tempSlotNode.number)
+            self.updateInvetoryNode(item: tempSlotNode.item, childIndex: tempInvNode.number)
+            self.delegate?.updateSlot(item: tempInvNode.item, childIndex: tempSlotNode.number)
             GameState.sharedInstance.inventoryStorage[tempInvNode.number] = tempSlotNode.item!
         }
         
         func updateInvetoryNode(item: InventoryItem?, childIndex:Int){
-            (self.children[childIndex] as! InventoryItemNode).updateWithItem(item)
+            (self.children[childIndex] as! InventoryItemNode).updateWithItem(item: item)
         }
         
         func resetAllNodesToDefault() {
             for node in self.children as [AnyObject] {
-                if node.isKindOfClass(InventoryItemNode)
+                if node.isKind(of: InventoryItemNode.self)
                 {
                     (node as! InventoryItemNode).deselect()
                 }

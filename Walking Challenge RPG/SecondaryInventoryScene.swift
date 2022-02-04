@@ -14,33 +14,33 @@ class SecondaryInventoryScene: SKScene, MenuButtonDelegate {
     var equippedSlotsSpriteNode: EquippedSlotsSpriteNode?
     
     //MARK: - Lifecycle 
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        inventorySpriteNode = InventorySpriteNode(size: CGSizeMake(0, 0))
+        inventorySpriteNode = InventorySpriteNode(size: CGSize(width: 0, height: 0))
         self.addChild(inventorySpriteNode!)
         inventorySpriteNode!.showInventory()
         
-        equippedSlotsSpriteNode = EquippedSlotsSpriteNode(size: CGSizeMake(0, 0))
+        equippedSlotsSpriteNode = EquippedSlotsSpriteNode(size: CGSize(width: 0, height: 0))
         self.addChild(equippedSlotsSpriteNode!)
         equippedSlotsSpriteNode!.showInventory()
         
         inventorySpriteNode!.delegate = equippedSlotsSpriteNode
         
-        let updateButton = MenuButton(color: UIColor.blackColor(), size: CGSizeMake(25, 25))
+        let updateButton = MenuButton(color: UIColor.black, size: CGSize(width: 25, height: 25))
         updateButton.name = "updateSlotsButton"
         updateButton.texture = SKTexture(image: UIImage(named: "closeButton")!)
         updateButton.color = UIColor.black
-        updateButton.position = CGPointMake(self.size.width / 2 - updateButton.size.width, 140)
+        updateButton.position = CGPoint(x: self.size.width / 2 - updateButton.size.width, y: 140)
         updateButton.delegate = self
-        updateButton.userInteractionEnabled = true
+        updateButton.isUserInteractionEnabled = true
         self.addChild(updateButton)
         print("\(self.equippedSlotsSpriteNode?.listItemsInSlots())")
     }
     
     func menuButtonTouched() {
-        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "com.davidwnorman.dismissMainMenu", object: nil))
+        NotificationCenter.default.post(name:Notification.Name("com.davidwnorman.dismissMainMenu"), object: nil)
     }
    
 }

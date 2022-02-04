@@ -13,8 +13,8 @@ protocol InventoryItemNodeProtocol {
     func resetAllNodesToDefault()
 }
 
-var INV_COLOR_SELECTED = UIColor.blueColor()
-var INV_COLOR_DESELECTED = UIColor.blackColor()
+var INV_COLOR_SELECTED = UIColor.blue
+var INV_COLOR_DESELECTED = UIColor.black
 
 class InventoryItemNode: SKShapeNode {
     
@@ -28,7 +28,7 @@ class InventoryItemNode: SKShapeNode {
     
     override init() {
         super.init()
-        self.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
     }
     
     func updateWithItem(item: InventoryItem?) {
@@ -37,13 +37,13 @@ class InventoryItemNode: SKShapeNode {
             self.item = item
             self.itemName = InventoryItemName(rawValue: realItem.imageName!)
             imageNode = SKSpriteNode(imageNamed: realItem.imageName!)
-            imageNode?.size = CGSizeMake(35, 35)
+            imageNode?.size = CGSize(width: 35, height: 35)
             self.addChild(imageNode!)
             
             let countLabel = SKLabelNode(text: realItem.numberInStack == 0 ? "" : String(realItem.numberInStack))
             countLabel.fontSize = 20
-            countLabel.position = CGPointMake(-15, 5)
-            countLabel.fontColor = UIColor.whiteColor()
+            countLabel.position = CGPoint(x: -15, y: 5)
+            countLabel.fontColor = UIColor.white
             countLabel.fontName = "AmericanTypewriter-Bold"
             countLabel.zPosition = 10
             self.addChild(countLabel)
@@ -60,7 +60,7 @@ class InventoryItemNode: SKShapeNode {
             self.itemName = InventoryItemName(rawValue: realItem.imageName!)
             imageNode = SKSpriteNode(imageNamed: realItem.imageName!)
             self.addChild(imageNode!)
-            imageNode!.size = CGSizeMake(35, 35)
+            imageNode!.size = CGSize(width: 35, height: 35)
         }
     }
     
@@ -74,10 +74,10 @@ class InventoryItemNode: SKShapeNode {
         super.init(coder: aDecoder)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         delegate?.resetAllNodesToDefault()
         self.selectItem()
-        delegate?.InventoryNodeTouched(self.item)
+        delegate?.InventoryNodeTouched(item: self.item)
 
     }
     
@@ -93,7 +93,7 @@ class InventoryItemNode: SKShapeNode {
         self.selected = false
     }
     
-    override func copyWithZone(zone: NSZone) -> AnyObject {
+    override func copy(with zone: NSZone? = nil) -> Any {
         let invItemNodeCopy = InventoryItemNode()
         invItemNodeCopy.delegate = delegate
         invItemNodeCopy.itemName = itemName

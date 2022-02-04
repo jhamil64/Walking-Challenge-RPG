@@ -18,7 +18,7 @@ class SecondaryInventoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "dismissMenu", name: "com.davidwnorman.dismissMainMenu", object: nil)
+        NotificationCenter.default.addObserver(self, selector: "dismissMenu", name: Notification.Name("com.davidwnorman.dismissMainMenu"), object: nil)
         
         self.scene = SecondaryInventoryScene(size: self.view.bounds.size)
         inventoryMenuView.showsFPS = true
@@ -31,6 +31,6 @@ class SecondaryInventoryViewController: UIViewController {
     }
     
     func dismissMenu() {
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in })
+        self.dismiss(animated: true, completion: { () -> Void in })
     }
 }

@@ -22,29 +22,29 @@ class InventoryScene: SKScene, InventoryItemNodeProtocol {
     
     override func didMove(to view: SKView) {
         
-        NotificationCenter.default.addObserver(self, selector: "updateEquippedSlots", name: "com.davidwnorman.updateEquippedSlots", object: nil)
+        NotificationCenter.default.addObserver(self, selector: "updateEquippedSlots", name: Notification.Name("com.davidwnorman.updateEquippedSlots"), object: nil)
         
         let squareWidth = CGFloat(50)
         let rows = EquippedSlotsConfig.numberOfRows
         let columns = EquippedSlotsConfig.numberOfColumns
 
-        self.anchorPoint = CGPointMake(0.0,0.3)
+        self.anchorPoint = CGPoint(x: 0.0,y: 0.3)
         var overallCount = 0
         
-        for var i = 0; i < columns; i++ {
-            for var j = 0; j < rows; j++ {
+        for i in 0 ..< columns {
+            for j in 0 ..< rows{
                 
-                let inventoryItem = InventoryItemNode(rectOfSize: CGSize(width: squareWidth, height: squareWidth))
+                let inventoryItem = InventoryItemNode(rectOf: CGSize(width: squareWidth, height: squareWidth))
                 inventoryItem.delegate = self
                 let updatedX = CGFloat(squareWidth / 2) + CGFloat(i * 50) + CGFloat(1)
                 let updatedY = CGFloat(self.frame.size.height - (CGFloat(inventoryItem.frame.size.height))) / CGFloat(2) - (squareWidth * CGFloat(j))
                 
                 inventoryItem.position = CGPoint(x:updatedX, y:updatedY )
                 inventoryItem.fillColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-                inventoryItem.strokeColor = UIColor.whiteColor()
+                inventoryItem.strokeColor = UIColor.white
                 inventoryItem.lineWidth = 2.0
                 inventoryItem.number = overallCount
-                overallCount++
+                overallCount+=1
                 if i == 0 && j == 0 {
                     inventoryItem.selectItem()
                 }
@@ -59,7 +59,7 @@ class InventoryScene: SKScene, InventoryItemNodeProtocol {
     
     func resetAllNodesToDefault() {
         for node in self.children as [AnyObject] {
-            if node.isKindOfClass(InventoryItemNode)
+            if node.isKind(of: InventoryItemNode.self)
             {
                 (node as! InventoryItemNode).deselect()
             }
@@ -80,9 +80,11 @@ class InventoryScene: SKScene, InventoryItemNodeProtocol {
         for invItemNode in self.children as! [InventoryItemNode] {
             if inventoryItemsArray.count > i {
                 invItemNode.removeAllChildren()
-                invItemNode.updateWithItem(inventoryItemsArray[i])
+                invItemNode.updateWithItem(item: inventoryItemsArray[i])
             } 
-            i++
+            i+=1
         }
     }
+    
+    @objc func methodOfReceivedNotification(notification: Notification) {}
 }
