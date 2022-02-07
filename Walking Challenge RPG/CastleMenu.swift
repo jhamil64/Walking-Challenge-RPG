@@ -46,10 +46,8 @@ class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate {
     
     var sceneColor = UIColor(red: 0.6, green: 1.0, blue: 0.6,
                              alpha: 1.0)
-    let title = SKLabelNode(text: "Walking Challenge RPG")
+
     let buttonText = SKLabelNode(text: "To World Map")
-    let buttonTexture = SKSpriteNode(color: .gray, size: CGSize(width: 100, height: 100))
-    let buttonTexture2 = SKSpriteNode(color: .gray, size: CGSize(width: 100, height: 100))
     
     override func didMove(to view: SKView) {
         if let button = self.childNode(withName: "button") as? Button {
@@ -66,11 +64,7 @@ class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate {
                 button3.delegate = self
                 addChild(button2)
                 addChild(button3)
-        
-        buttonTexture.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 10)
-        buttonTexture.size = CGSize(width: view.frame.width / 3, height: view.frame.height / 3)
-        buttonTexture2.position = CGPoint(x: view.frame.width / 10, y: view.frame.height / 1)
-        buttonTexture2.size = CGSize(width: view.frame.width / 10, height: view.frame.height / 3)
+
         
         buttonText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 7.4)
         buttonText.fontSize = 18

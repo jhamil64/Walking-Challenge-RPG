@@ -54,9 +54,6 @@ class Button: SKSpriteNode {
     var sceneColor = UIColor(red: 0.6, green: 0.6, blue: 1.0,
                              alpha: 1.0)
     var pedometer = CMPedometer()
-    var distance:Double! = nil
-    var averagePace:Double! = nil
-    var pace:Double! = nil
     var numberOfSteps:Int! = nil
     var stepDifference:Int! = nil
     var timer = Timer()
@@ -71,12 +68,7 @@ class Button: SKSpriteNode {
     let moneyText = SKLabelNode(text: "Total Gold")
     let buttonText = SKLabelNode(text: "To Castle Area")
     let challengeText = SKLabelNode(text: "Active Challenges")
-    let buttonTexture = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 100))
-    let statusTitle = SKLabelNode(text: "Text")
     let stepsLabel = SKLabelNode(text: "(Steps This Session)")
-    let avgPaceLabel = SKLabelNode(text: "avgPace")
-    let paceLabel = SKLabelNode(text: "pace")
-    let distanceLabel = SKLabelNode(text: "distance")
     let currentGoldLabel = SKLabelNode(text: "Current Gold")
 
     
@@ -156,9 +148,6 @@ class Button: SKSpriteNode {
                     button2.delegate = self
                     addChild(button2)
             
-            buttonTexture.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 7.2)
-            buttonTexture.size = CGSize(width: view.frame.width / 1.5, height: view.frame.height / 8)
-            
             buttonText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 7.4)
             buttonText.fontSize = 23
             buttonText.fontColor = SKColor.white
@@ -205,7 +194,6 @@ class Button: SKSpriteNode {
     addChild(stepText)
     addChild(moneyText)
     addChild(challengeText)
-//    addChild(buttonTexture)
     addChild(buttonText)
     addChild(stepsLabel)
     addChild(currentGoldLabel)

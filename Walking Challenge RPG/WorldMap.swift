@@ -10,10 +10,7 @@ class WorldMap: SKScene, ButtonDelegate, BackButtonDelegate {
     
     var sceneColor = UIColor(red: 1.0, green: 1.0, blue: 1.0,
                              alpha: 1.0)
-    let title = SKLabelNode(text: "Walking Challenge RPG")
-    let buttonText = SKLabelNode(text: "To World Map")
-    let buttonTexture = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 100))
-    let buttonTexture2 = SKSpriteNode(color: .black, size: CGSize(width: 10, height: 10))
+    let title = SKLabelNode(text: "World Map")
     
     
     override func didMove(to view: SKView) {
@@ -32,17 +29,8 @@ class WorldMap: SKScene, ButtonDelegate, BackButtonDelegate {
                 addChild(button2)
                 addChild(button3)
         
-        
-//
-//        buttonTexture.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 7.2)
-//        buttonTexture.size = CGSize(width: view.frame.width / 1.5, height: view.frame.height / 8)
-//        buttonTexture2.position = CGPoint(x: view.frame.width / 10, y: view.frame.height / 1)
-//        buttonTexture2.size = CGSize(width: view.frame.width / 10, height: view.frame.height / 3)
-        
-        buttonText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 7.4)
-        buttonText.fontSize = 23
-        buttonText.fontColor = SKColor.white
-        buttonText.fontName = "Courier New Bold"
+                title.fontSize = 32
+        title.fontColor = SKColor.black
         self.backgroundColor = sceneColor
         title.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.2)
         
