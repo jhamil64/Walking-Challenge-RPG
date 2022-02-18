@@ -10,7 +10,7 @@ import Foundation
 
 class InventoryConfig {
    static let numberOfRows = 5 // modify as desired
-   static let numberOfColumns = 8  // modify as desired
+   static let numberOfColumns = 5  // modify as desired
     static var totalInventoryNodes : Int {
         get {
         return numberOfColumns * numberOfRows
@@ -20,7 +20,7 @@ class InventoryConfig {
 
 class EquippedSlotsConfig {
     static let numberOfRows = 3  // modify as desired
-    static let numberOfColumns = 3  // modify as desired
+    static let numberOfColumns = 1  // modify as desired
     static var totalInventoryNodes : Int {
         get {
             return numberOfColumns * numberOfRows

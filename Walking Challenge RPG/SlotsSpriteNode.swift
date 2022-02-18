@@ -88,7 +88,9 @@ class EquippedSlotsSpriteNode: SKSpriteNode,InventoryItemNodeProtocol, Inventory
     
     func updateSlot(item: InventoryItem?, childIndex:Int){
         (self.children[childIndex] as! InventoryItemNode).updateWithItem(item: item)
+        if item != nil {
         GameState.sharedInstance.equippedItems[childIndex] = item!
+        }
     }
     
     func listItemsInSlots()->[InventoryItemNode] {

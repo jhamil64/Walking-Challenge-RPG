@@ -7,6 +7,10 @@ protocol BackButtonDelegate: AnyObject {
     func backButtonClicked(sender: BackButton)
 }
 
+protocol InventoryButtonDelegate: AnyObject {
+    func inventoryButtonClicked(sender: InventoryButton)
+}
+
 class BackButton: SKSpriteNode {
 
     //weak so that you don't create a strong circular reference with the parent
@@ -39,8 +43,41 @@ class BackButton: SKSpriteNode {
     }
 }
 
+class InventoryButton: SKSpriteNode {
 
-class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate {
+    //weak so that you don't create a strong circular reference with the parent
+    weak var delegate: InventoryButtonDelegate!
+
+    override init(texture: SKTexture?, color: SKColor, size: CGSize) {
+
+        super.init(texture: texture, color: color, size: size)
+
+        setup()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        setup()
+    }
+
+    func setup() {
+        isUserInteractionEnabled = true
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        setScale(0.9)
+        self.delegate.inventoryButtonClicked(sender: self)
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        setScale(1.0)
+    }
+}
+
+
+class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate, InventoryButtonDelegate {
+    
     
     private var button = Button()
     
@@ -57,13 +94,17 @@ class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate {
 
         let button2 = Button(texture: nil, color: .gray, size: CGSize(width: view.frame.width / 2.8, height: view.frame.height / 3))
         let button3 = BackButton(texture: nil, color: .black, size: CGSize(width: view.frame.width / 10, height: view.frame.height / 10))
+        let button4 = InventoryButton(texture: nil, color: .white, size: CGSize(width: view.frame.width / 3.4, height: view.frame.height / 4))
                 button2.name = "button2"
                 button2.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 10)
                 button2.delegate = self
-        button3.position = CGPoint(x: view.frame.width / 100, y: view.frame.height / 1.1)
+                button3.position = CGPoint(x: view.frame.width / 100, y: view.frame.height / 1.1)
                 button3.delegate = self
+                button4.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
+                button4.delegate = self
                 addChild(button2)
                 addChild(button3)
+                addChild(button4)
 
         
         buttonText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 7.4)
@@ -85,6 +126,13 @@ class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate {
     func backButtonClicked(sender: BackButton) {
         let transition:SKTransition = SKTransition.fade(withDuration: 1)
         let scene: SKScene = TitleScreen(size: self.size)
+        self.view?.presentScene(scene, transition: transition)
+        
+    }
+    
+    func inventoryButtonClicked(sender: InventoryButton) {
+        let transition:SKTransition = SKTransition.fade(withDuration: 1)
+        let scene: SKScene = SecondaryInventoryScene(size: self.size)
         self.view?.presentScene(scene, transition: transition)
         
     }

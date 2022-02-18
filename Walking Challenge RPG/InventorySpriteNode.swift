@@ -88,7 +88,7 @@
             for node in self.children as! [InventoryItemNode] {
                 //slot and inv node selected
                 if node.selected && self.delegate?.selectedNode() != nil {
-                    self.swapInvAndSlot(selectedInvNode: node)
+                    //self.swapInvAndSlot(selectedInvNode: node)
                 }
             }
             NotificationCenter.default.post(name:Notification.Name("com.davidwnorman.updateEquippedSlots"), object: nil)

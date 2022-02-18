@@ -36,11 +36,15 @@ class SecondaryInventoryScene: SKScene, MenuButtonDelegate {
         updateButton.delegate = self
         updateButton.isUserInteractionEnabled = true
         self.addChild(updateButton)
-        print("\(self.equippedSlotsSpriteNode?.listItemsInSlots())")
+        print("\(String(describing: self.equippedSlotsSpriteNode?.listItemsInSlots()))")
     }
     
     func menuButtonTouched() {
         NotificationCenter.default.post(name:Notification.Name("com.davidwnorman.dismissMainMenu"), object: nil)
+        let transition:SKTransition = SKTransition.fade(withDuration: 1)
+        let scene: SKScene = CastleMenu(size: self.size)
+        self.view?.presentScene(scene, transition: transition)
+
     }
    
 }
