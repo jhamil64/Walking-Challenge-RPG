@@ -15,7 +15,8 @@
 		C2050CC627AC7CBC00188DA4 /* SecondaryInventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CC527AC7CBC00188DA4 /* SecondaryInventoryScene.swift */; };
 		C2050CC827AC7CC000188DA4 /* SecondaryInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CC727AC7CC000188DA4 /* SecondaryInventoryViewController.swift */; };
 		C2050CCA27AC7CC500188DA4 /* SlotsSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CC927AC7CC500188DA4 /* SlotsSpriteNode.swift */; };
-		C2229E4D277EBFB200146FAE /* GameObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2229E4C277EBFB200146FAE /* GameObjects.swift */; };
+		C2229E4D277EBFB200146FAE /* Enemies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2229E4C277EBFB200146FAE /* Enemies.swift */; };
+		C2737D5127C856DA00CCA80B /* EnemyInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2737D5027C856DA00CCA80B /* EnemyInitializer.swift */; };
 		C2810D192758776B00C7ACA8 /* CastleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2810D182758776B00C7ACA8 /* CastleMenu.swift */; };
 		C28FA54227309B3500477004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54127309B3500477004 /* AppDelegate.swift */; };
 		C28FA54827309B3500477004 /* TitleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54727309B3500477004 /* TitleScreen.swift */; };
@@ -36,7 +37,8 @@
 		C2050CC527AC7CBC00188DA4 /* SecondaryInventoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInventoryScene.swift; sourceTree = "<group>"; };
 		C2050CC727AC7CC000188DA4 /* SecondaryInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInventoryViewController.swift; sourceTree = "<group>"; };
 		C2050CC927AC7CC500188DA4 /* SlotsSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsSpriteNode.swift; sourceTree = "<group>"; };
-		C2229E4C277EBFB200146FAE /* GameObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObjects.swift; sourceTree = "<group>"; };
+		C2229E4C277EBFB200146FAE /* Enemies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemies.swift; sourceTree = "<group>"; };
+		C2737D5027C856DA00CCA80B /* EnemyInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyInitializer.swift; sourceTree = "<group>"; };
 		C2810D122756D46E00C7ACA8 /* Walking Challenge RPG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Walking Challenge RPG-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2810D182758776B00C7ACA8 /* CastleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastleMenu.swift; sourceTree = "<group>"; };
 		C28FA53E27309B3500477004 /* Walking Challenge RPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walking Challenge RPG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +98,8 @@
 				C2050CC727AC7CC000188DA4 /* SecondaryInventoryViewController.swift */,
 				C2050CC927AC7CC500188DA4 /* SlotsSpriteNode.swift */,
 				C28FA54927309B3500477004 /* GameViewController.swift */,
-				C2229E4C277EBFB200146FAE /* GameObjects.swift */,
+				C2229E4C277EBFB200146FAE /* Enemies.swift */,
+				C2737D5027C856DA00CCA80B /* EnemyInitializer.swift */,
 				C28FA54B27309B3500477004 /* Main.storyboard */,
 				C28FA54E27309B3700477004 /* Assets.xcassets */,
 				C28FA55027309B3700477004 /* Info.plist */,
@@ -175,13 +178,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2229E4D277EBFB200146FAE /* GameObjects.swift in Sources */,
+				C2229E4D277EBFB200146FAE /* Enemies.swift in Sources */,
 				C2050CC627AC7CBC00188DA4 /* SecondaryInventoryScene.swift in Sources */,
 				C2810D192758776B00C7ACA8 /* CastleMenu.swift in Sources */,
 				C2050CCA27AC7CC500188DA4 /* SlotsSpriteNode.swift in Sources */,
 				C2F8087527A65D99008E7641 /* LevelSelect.swift in Sources */,
 				C2050CC027AC7CAB00188DA4 /* InventoryScene.swift in Sources */,
 				C28FA54827309B3500477004 /* TitleScreen.swift in Sources */,
+				C2737D5127C856DA00CCA80B /* EnemyInitializer.swift in Sources */,
 				C2050CC227AC7CB000188DA4 /* InventorySpriteNode.swift in Sources */,
 				C28FA54A27309B3500477004 /* GameViewController.swift in Sources */,
 				C2050CBE27AC7CA300188DA4 /* InventoryItemNode.swift in Sources */,
