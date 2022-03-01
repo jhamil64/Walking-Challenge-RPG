@@ -2,7 +2,7 @@
 import Foundation
 import SpriteKit
 
-class Enemy {
+class Stats {
     
     var enemyName: String
     
