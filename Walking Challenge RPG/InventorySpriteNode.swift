@@ -101,6 +101,10 @@
             self.updateInvetoryNode(item: tempSlotNode.item, childIndex: tempInvNode.number)
             self.delegate?.updateSlot(item: tempInvNode.item, childIndex: tempSlotNode.number)
             GameState.sharedInstance.inventoryStorage[tempInvNode.number] = tempSlotNode.item!
+            if (tempInvNode.itemName == InventoryItemName.sword_silver) {
+            print("Silver Sword Equipped")
+                gameStats.heroCatTest.baseAttack = 13
+            }
         }
         
         func updateInvetoryNode(item: InventoryItem?, childIndex:Int){

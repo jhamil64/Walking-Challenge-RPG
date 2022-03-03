@@ -84,7 +84,7 @@ class InventoryItemNode: SKShapeNode {
     func selectItem() {
         self.fillColor = INV_COLOR_SELECTED
         self.selected = true
-        print("selected: \(self.itemName)")
+        print("selected: \(String(describing: self.itemName))")
 
     }
     

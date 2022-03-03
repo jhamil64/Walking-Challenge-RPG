@@ -34,7 +34,7 @@ class Level1: SKScene, ButtonDelegate, BackButtonDelegate {
     }
     
     func buttonClicked(sender: Button) {
-        let damage = (gameStats.testEnemy.baseAttack - (gameStats.heroCatTest.baseDefense/2))
+        let damage = (gameStats.heroCatTest.baseAttack - (gameStats.testEnemy.baseDefense/2))
         
         print(damage)
         
