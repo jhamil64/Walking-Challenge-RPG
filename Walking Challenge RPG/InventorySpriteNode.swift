@@ -105,6 +105,9 @@
             print("Silver Sword Equipped")
                 gameStats.heroCatTest.baseAttack = 13
             }
+            if (tempInvNode.itemName == InventoryItemName.empty) {
+                gameStats.heroCatTest.baseAttack = 10
+            }
         }
         
         func updateInvetoryNode(item: InventoryItem?, childIndex:Int){

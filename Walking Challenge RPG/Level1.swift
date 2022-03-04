@@ -4,8 +4,6 @@ import SpriteKit
 
 
 class Level1: SKScene, ButtonDelegate, BackButtonDelegate {
-    var enemyStats: Stats! = nil
-    var chosenEnemy1: gameStats! = nil
     
     private var button = Button()
     
@@ -34,9 +32,14 @@ class Level1: SKScene, ButtonDelegate, BackButtonDelegate {
     }
     
     func buttonClicked(sender: Button) {
-        let damage = (gameStats.heroCatTest.baseAttack - (gameStats.testEnemy.baseDefense/2))
+        let damage: Float = round((gameStats.heroCatTest.baseAttack - (gameStats.testEnemy.baseDefense/2))*Float.random(in: 0.9..<1.1))
         
         print(damage)
+        gameStats.testEnemy.currentHP -= damage
+        if (gameStats.testEnemy.currentHP < 0)
+        {
+            print("He's dead, Jim")
+        }
         
     }
     
