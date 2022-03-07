@@ -25,6 +25,8 @@
 		C2A3257E27CD8EC500B777AE /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A3257D27CD8EC500B777AE /* Level1.swift */; };
 		C2A3258027CDB29400B777AE /* HeroCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A3257F27CDB29400B777AE /* HeroCat.swift */; };
 		C2A3258227CDCF4200B777AE /* StatInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A3258127CDCF4200B777AE /* StatInitializer.swift */; };
+		C2A3258427D5C43E00B777AE /* gray_rat.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3258327D5C43E00B777AE /* gray_rat.png */; };
+		C2A3258627D5C44C00B777AE /* HeroCat.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3258527D5C44C00B777AE /* HeroCat.png */; };
 		C2F8087327A6532C008E7641 /* WorldMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F8087227A6532C008E7641 /* WorldMap.swift */; };
 		C2F8087527A65D99008E7641 /* LevelSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F8087427A65D99008E7641 /* LevelSelect.swift */; };
 		C2FD484527AC8618005F802C /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FD484427AC8618005F802C /* InventoryItem.swift */; };
@@ -52,6 +54,8 @@
 		C2A3257D27CD8EC500B777AE /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
 		C2A3257F27CDB29400B777AE /* HeroCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCat.swift; sourceTree = "<group>"; };
 		C2A3258127CDCF4200B777AE /* StatInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatInitializer.swift; sourceTree = "<group>"; };
+		C2A3258327D5C43E00B777AE /* gray_rat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gray_rat.png; path = Assets.xcassets/gray_rat.png; sourceTree = "<group>"; };
+		C2A3258527D5C44C00B777AE /* HeroCat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeroCat.png; path = Assets.xcassets/HeroCat.png; sourceTree = "<group>"; };
 		C2F8087227A6532C008E7641 /* WorldMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldMap.swift; sourceTree = "<group>"; };
 		C2F8087427A65D99008E7641 /* LevelSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelect.swift; sourceTree = "<group>"; };
 		C2FD484427AC8618005F802C /* InventoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				C2A3257F27CDB29400B777AE /* HeroCat.swift */,
 				C28FA54B27309B3500477004 /* Main.storyboard */,
 				C28FA54E27309B3700477004 /* Assets.xcassets */,
+				C2A3258527D5C44C00B777AE /* HeroCat.png */,
+				C2A3258327D5C43E00B777AE /* gray_rat.png */,
 				C28FA55027309B3700477004 /* Info.plist */,
 				C2810D122756D46E00C7ACA8 /* Walking Challenge RPG-Bridging-Header.h */,
 			);
@@ -172,7 +178,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2A3258627D5C44C00B777AE /* HeroCat.png in Resources */,
 				C28FA54D27309B3500477004 /* Main.storyboard in Resources */,
+				C2A3258427D5C43E00B777AE /* gray_rat.png in Resources */,
 				C28FA54F27309B3700477004 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
