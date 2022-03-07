@@ -103,10 +103,10 @@
             GameState.sharedInstance.inventoryStorage[tempInvNode.number] = tempSlotNode.item!
             if (tempInvNode.itemName == InventoryItemName.sword_silver) {
             print("Silver Sword Equipped")
-                gameStats.heroCatTest.baseAttack = 13
+                gameStats.heroCat.baseAttack = 13
             }
             if (tempInvNode.itemName == InventoryItemName.empty) {
-                gameStats.heroCatTest.baseAttack = 10
+                gameStats.heroCat.baseAttack = 10
             }
         }
         
