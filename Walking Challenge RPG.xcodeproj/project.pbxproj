@@ -15,6 +15,7 @@
 		C2050CC627AC7CBC00188DA4 /* SecondaryInventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CC527AC7CBC00188DA4 /* SecondaryInventoryScene.swift */; };
 		C2050CC827AC7CC000188DA4 /* SecondaryInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CC727AC7CC000188DA4 /* SecondaryInventoryViewController.swift */; };
 		C2050CCA27AC7CC500188DA4 /* SlotsSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2050CC927AC7CC500188DA4 /* SlotsSpriteNode.swift */; };
+		C2172E8327FBF1C4006010AC /* ShopScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2172E8227FBF1C4006010AC /* ShopScreen.swift */; };
 		C2229E4D277EBFB200146FAE /* GameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2229E4C277EBFB200146FAE /* GameStats.swift */; };
 		C2810D192758776B00C7ACA8 /* CastleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2810D182758776B00C7ACA8 /* CastleMenu.swift */; };
 		C28FA54227309B3500477004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54127309B3500477004 /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 		C2050CC527AC7CBC00188DA4 /* SecondaryInventoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInventoryScene.swift; sourceTree = "<group>"; };
 		C2050CC727AC7CC000188DA4 /* SecondaryInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInventoryViewController.swift; sourceTree = "<group>"; };
 		C2050CC927AC7CC500188DA4 /* SlotsSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsSpriteNode.swift; sourceTree = "<group>"; };
+		C2172E8227FBF1C4006010AC /* ShopScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopScreen.swift; sourceTree = "<group>"; };
 		C2229E4C277EBFB200146FAE /* GameStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStats.swift; sourceTree = "<group>"; };
 		C2810D122756D46E00C7ACA8 /* Walking Challenge RPG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Walking Challenge RPG-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2810D182758776B00C7ACA8 /* CastleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastleMenu.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				C2A3258127CDCF4200B777AE /* StatInitializer.swift */,
+				C2172E8227FBF1C4006010AC /* ShopScreen.swift */,
 				C2A3257D27CD8EC500B777AE /* Level1.swift */,
 				C2FD484427AC8618005F802C /* InventoryItem.swift */,
 				C28FA54127309B3500477004 /* AppDelegate.swift */,
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2A3257E27CD8EC500B777AE /* Level1.swift in Sources */,
+				C2172E8327FBF1C4006010AC /* ShopScreen.swift in Sources */,
 				C2A3258027CDB29400B777AE /* HeroCat.swift in Sources */,
 				C2229E4D277EBFB200146FAE /* GameStats.swift in Sources */,
 				C2050CC627AC7CBC00188DA4 /* SecondaryInventoryScene.swift in Sources */,
