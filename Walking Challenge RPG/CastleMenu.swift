@@ -144,6 +144,7 @@ class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate, InventoryButtonDe
                 addChild(button3)
                 addChild(button4)
                 addChild(button5)
+        //test
 
         
         buttonText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 7.4)
