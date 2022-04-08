@@ -8,6 +8,8 @@ import UIKit
 
 import Foundation
 
+var goldSaver = UserDefaults.standard
+
 protocol ButtonDelegate: AnyObject {
     func buttonClicked(sender: Button)
 }
@@ -59,7 +61,6 @@ class Button: SKSpriteNode {
     var timer = Timer()
     var timerInterval = 1.0
     var timeElapsed:TimeInterval = 1.0
-    var goldSaver = UserDefaults.standard
 
     
     
@@ -198,7 +199,7 @@ class Button: SKSpriteNode {
     addChild(stepsLabel)
     addChild(currentGoldLabel)
         
-        goldSaver.set(self.goldSaver.integer(forKey: "Gold"), forKey: "Gold")
+        goldSaver.set(goldSaver.integer(forKey: "Gold"), forKey: "Gold")
         currentGoldLabel.text = String(format:"%i",goldSaver.integer(forKey: "Gold"))
         startTimer()
 
