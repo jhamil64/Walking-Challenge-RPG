@@ -13,17 +13,6 @@ class GameViewController: UIViewController {
         
         //Configure the game state for this demo!
         GameState.inititialSetup()
-
-        //setup view
-        self.view.backgroundColor = UIColor.black
-
-        //setup scene
-        self.scene = InventoryScene(size: self.view.bounds.size)
-        inventoryMenuView.showsFPS = true
-        inventoryMenuView.showsNodeCount = true
-        inventoryMenuView.ignoresSiblingOrder = true
-        self.scene!.scaleMode = .resizeFill
-        inventoryMenuView.presentScene(scene)
         
         let scene = TitleScreen(size: view.frame.size)
         let skView = view as! SKView

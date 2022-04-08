@@ -60,7 +60,7 @@ class Button: SKSpriteNode {
     var timerInterval = 1.0
     var timeElapsed:TimeInterval = 1.0
     var goldSaver = UserDefaults.standard
-    
+
     
     
     let title = SKLabelNode(text: "Walking Challenge RPG")
