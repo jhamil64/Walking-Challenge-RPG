@@ -6,6 +6,7 @@ let damageInfo = SKLabelNode()
 var playerHealthVariable: Float = gameStats.heroCat.maxHP
 var playerHP = SKLabelNode(text: String(format: "%.01f", playerHealthVariable) + " HP")
 let victoryText = SKLabelNode(text: "You Win!")
+let gainedExp = SKLabelNode(text: "Gained 5 EXP")
 let defeatText = SKLabelNode(text: "You Lose...")
 let seconds = 1.0
 let grayRatSprite = SKTexture(imageNamed: "gray_rat")
@@ -101,15 +102,19 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate {
         playerHP.fontName = "Helvetica"
         addChild(playerHP)
         
-        defeatText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.35)
+        defeatText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.25)
         defeatText.fontSize = 36
         defeatText.fontColor = SKColor.blue
         defeatText.fontName = "Helvetica"
         
-        victoryText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.35)
+        victoryText.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.25)
         victoryText.fontSize = 36
         victoryText.fontColor = SKColor.orange
         victoryText.fontName = "Helvetica"
+        gainedExp.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.25)
+        gainedExp.fontSize = 36
+        gainedExp.fontColor = SKColor.orange
+        gainedExp.fontName = "Helvetica"
         
         
     }
@@ -128,7 +133,9 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate {
             if (gameStats.grayRat.currentHP <= 0)
             {
                 self.addChild(victoryText)
+                self.addChild(gainedExp)
                 self.button2.size = CGSize(width: 0, height: 0)
+                experience.set(experience.integer(forKey: "EXP")+5, forKey: "EXP")
                 return
             }
             

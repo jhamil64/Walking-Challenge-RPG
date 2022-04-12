@@ -9,6 +9,7 @@ import UIKit
 import Foundation
 
 var goldSaver = UserDefaults.standard
+var experience = UserDefaults.standard
 
 protocol ButtonDelegate: AnyObject {
     func buttonClicked(sender: Button)
