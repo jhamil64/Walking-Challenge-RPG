@@ -22,7 +22,7 @@ enum InventoryItemName: String {
 
 class InventoryItem: NSObject, NSCopying, NSCoding {
     func copy(with zone: NSZone? = nil) -> Any {
-        return InventoryItem(name: self.name!, numberInStack:self.numberInStack)
+        return InventoryItem(name: self.name!, numberInStack:self.numberInStack, isOwned: self.isOwned)
     }
     
     
@@ -30,6 +30,7 @@ class InventoryItem: NSObject, NSCopying, NSCoding {
     var name: InventoryItemName?
     var imageName: String?
     var numberInStack = 0
+    var isOwned = false
     
     func encode(with coder: NSCoder) {
         coder.encode(name?.rawValue, forKey: "Item-name")
@@ -49,10 +50,11 @@ class InventoryItem: NSObject, NSCopying, NSCoding {
         self.imageName = name.rawValue
     }
     
-    init(name: InventoryItemName, numberInStack:Int) {
+    init(name: InventoryItemName, numberInStack:Int, isOwned:Bool) {
         self.name = name
         self.imageName = name.rawValue
         self.numberInStack = numberInStack
+        self.isOwned = isOwned
     }
 
 }

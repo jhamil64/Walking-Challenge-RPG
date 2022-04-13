@@ -76,14 +76,21 @@ class InventoryItemNode: SKShapeNode {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         delegate?.resetAllNodesToDefault()
-        self.selectItem()
+
+            self.selectItem()
+        
         delegate?.InventoryNodeTouched(item: self.item)
 
     }
     
     func selectItem() {
-        self.fillColor = INV_COLOR_SELECTED
-        self.selected = true
+        
+        if (self.item?.isOwned == true) {
+            self.fillColor = INV_COLOR_SELECTED
+            self.selected = true
+            
+        }
+        
         print("selected: \(String(describing: self.itemName))")
 
     }
