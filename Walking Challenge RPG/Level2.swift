@@ -2,56 +2,8 @@
 import Foundation
 import SpriteKit
 
-let damageInfo = SKLabelNode()
-var playerHealthVariable: Float = gameStats.heroCat.maxHP
-var playerHP = SKLabelNode(text: String(format: "%.01f", playerHealthVariable) + " HP")
-let victoryText = SKLabelNode(text: "You Win!")
-let gainedExp = SKLabelNode(text: "Gained 5 EXP")
-let defeatText = SKLabelNode(text: "You Lose...")
-let seconds = 1.0
-let grayRatSprite = SKTexture(imageNamed: "gray_rat")
-let heroCatSprite = SKSpriteNode(imageNamed: "HeroCat")
 
-protocol EnemyButtonDelegate: AnyObject {
-    func enemyButtonClicked(sender: EnemyButton)
-}
-
-class EnemyButton: SKSpriteNode {
-
-    //weak so that you don't create a strong circular reference with the parent
-    weak var delegate: EnemyButtonDelegate!
-
-    override init(texture: SKTexture?, color: SKColor, size: CGSize) {
-
-        super.init(texture: texture, color: color, size: size)
-
-        setup()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-
-        setup()
-    }
-
-    func setup() {
-        isUserInteractionEnabled = true
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.delegate.enemyButtonClicked(sender: self)
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isUserInteractionEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.isUserInteractionEnabled = true
-        }
-        
-    }
-}
-
-class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate {
+class Level2: SKScene, EnemyButtonDelegate, BackButtonDelegate {
     
     func setupBattle() {
         playerHealthVariable = Walking_Challenge_RPG.gameStats.heroCat.maxHP
@@ -111,7 +63,7 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate {
         victoryText.fontSize = 36
         victoryText.fontColor = SKColor.orange
         victoryText.fontName = "Helvetica"
-        gainedExp.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.35)
+        gainedExp.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.45)
         gainedExp.fontSize = 32
         gainedExp.fontColor = SKColor.orange
         gainedExp.fontName = "Helvetica"
@@ -136,7 +88,7 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate {
                 self.addChild(gainedExp)
                 self.button2.size = CGSize(width: 0, height: 0)
                 experience.set(experience.integer(forKey: "EXP")+5, forKey: "EXP")
-                completionFlag.set(true, forKey: "true")
+                completionFlag.set(false, forKey: "true")
                 return
             }
             
