@@ -10,6 +10,7 @@ import Foundation
 
 var goldSaver = UserDefaults.standard
 var experience = UserDefaults.standard
+var completionFlag = UserDefaults.standard
 
 protocol ButtonDelegate: AnyObject {
     func buttonClicked(sender: Button)

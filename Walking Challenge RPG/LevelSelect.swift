@@ -9,10 +9,14 @@ class LevelSelect: SKScene, ButtonDelegate, BackButtonDelegate {
     var sceneColor = UIColor(red: 0.4, green: 1.0, blue: 0.4,
                              alpha: 1.0)
     let title = SKLabelNode(text: "Greenhorn Grassland")
+    let alreadyDone = SKLabelNode(text: "Choose a level")
     
     override func didMove(to view: SKView) {
         self.backgroundColor = sceneColor
         title.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.2)
+        alreadyDone.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.5)
+        alreadyDone.fontSize = 24
+        addChild(alreadyDone)
         
         let button2 = Button(texture: nil, color: .black, size: CGSize(width: view.frame.width / 10, height: view.frame.height / 10))
         button2.name = "stage1"
@@ -31,9 +35,15 @@ class LevelSelect: SKScene, ButtonDelegate, BackButtonDelegate {
     }
     
     func buttonClicked(sender: Button) {
+        if (completionFlag.bool(forKey: "true") == true)
+        {
+            alreadyDone.text = "Already completed this"
+        }
+        else {
         let transition:SKTransition = SKTransition.fade(withDuration: 1)
         let scene: SKScene = Level1(size: self.size)
         self.view?.presentScene(scene, transition: transition)
+        }
         
     }
     
