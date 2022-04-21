@@ -16,6 +16,7 @@ enum InventoryItemName: String {
     case pick_silver = "pick_silver"
     case stew = "stew"
     case sword_silver = "sword_silver"
+    case staff = "staff"
     case empty = "empty"
     
 }

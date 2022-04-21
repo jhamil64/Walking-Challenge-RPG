@@ -71,6 +71,7 @@ class GameState {
         let stew = InventoryItem(name:InventoryItemName.stew, numberInStack: 1, isOwned: false)
         let sword_silver = InventoryItem(name:InventoryItemName.sword_silver,numberInStack: 1, isOwned: false)
         let rubies = InventoryItem(name:InventoryItemName.ore_ruby, numberInStack: 1, isOwned: false)
+        let staff = InventoryItem(name:InventoryItemName.staff,numberInStack: 1, isOwned: false)
         
         GameState.sharedInstance.inventoryStorage.append(flail_bronze)
         GameState.sharedInstance.inventoryStorage.append(hammer_gold)
@@ -78,6 +79,7 @@ class GameState {
         GameState.sharedInstance.inventoryStorage.append(stew)
         GameState.sharedInstance.inventoryStorage.append(sword_silver)
         GameState.sharedInstance.inventoryStorage.append(rubies)
+        GameState.sharedInstance.inventoryStorage.append(staff)
         for _ in 0 ..< 40 {
             GameState.sharedInstance.inventoryStorage.append(empty)
         }
