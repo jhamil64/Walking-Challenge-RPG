@@ -114,6 +114,14 @@ class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegat
         currentGold.text = String(format:"%i",goldSaver.integer(forKey: "Gold"))
         experience.set(experience.integer(forKey: "EXP"), forKey: "EXP")
         expText.text = String(format:"%i",experience.integer(forKey: "EXP"))
+//            self.inv
+        let boughtStaff = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.staff)
+            staffOwned.set(true, forKey: "staffCheck")
+            boughtStaff?.isOwned = staffOwned.bool(forKey: "staffCheck");
+            
+         
+            print(staffOwned)
+            
         }
         
         

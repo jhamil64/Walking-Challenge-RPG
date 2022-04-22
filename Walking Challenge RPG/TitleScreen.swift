@@ -11,6 +11,8 @@ import Foundation
 var goldSaver = UserDefaults.standard
 var experience = UserDefaults.standard
 var completionFlag = UserDefaults.standard
+var staffOwned = UserDefaults.standard
+
 
 protocol ButtonDelegate: AnyObject {
     func buttonClicked(sender: Button)
@@ -215,7 +217,6 @@ class Button: SKSpriteNode {
         let transition:SKTransition = SKTransition.fade(withDuration: 1)
         let scene: SKScene = CastleMenu(size: self.size)
         self.view?.presentScene(scene, transition: transition)
-        
     }
  
 }
