@@ -69,16 +69,12 @@ class GameState {
         let flail_bronze = InventoryItem(name:InventoryItemName.flail_bronze,numberInStack: 1, isOwned: false)
         let hammer_gold = InventoryItem(name:InventoryItemName.hammer_gold,numberInStack: 1, isOwned: false)
         let pick_silver = InventoryItem(name:InventoryItemName.pick_silver, numberInStack: 1, isOwned: false)
-        let stew = InventoryItem(name:InventoryItemName.stew, numberInStack: 1, isOwned: false)
+        let stew = InventoryItem(name:InventoryItemName.stew, numberInStack: numStack.integer(forKey: "num"), isOwned: true)
         let sword_silver = InventoryItem(name:InventoryItemName.sword_silver,numberInStack: 1, isOwned: false)
         let rubies = InventoryItem(name:InventoryItemName.ore_ruby, numberInStack: 1, isOwned: false)
-        if (staffOwned.bool(forKey: "staffCheck") == true) {
-            let staff = InventoryItem(name:InventoryItemName.staff,numberInStack: 1, isOwned: true)
-            GameState.sharedInstance.inventoryStorage.append(staff)
-        }
-        else {let staff = InventoryItem(name:InventoryItemName.staff,numberInStack: 1, isOwned: false)
-            GameState.sharedInstance.inventoryStorage.append(staff)
-        }
+        let staff = InventoryItem(name:InventoryItemName.staff,numberInStack: 1, isOwned: staffOwned.bool(forKey: "staffCheck"))
+        GameState.sharedInstance.inventoryStorage.append(staff)
+ 
   
         
         GameState.sharedInstance.inventoryStorage.append(flail_bronze)

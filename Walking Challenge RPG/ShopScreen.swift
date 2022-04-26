@@ -99,6 +99,10 @@ class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegat
         currentGold.text = String(format:"%i",goldSaver.integer(forKey: "Gold"))
         experience.set(experience.integer(forKey: "EXP"), forKey: "EXP")
         expText.text = String(format:"%i",experience.integer(forKey: "EXP"))
+            let foundItem = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.stew)
+            foundItem?.numberInStack += 1
+        numStack.set(foundItem?.numberInStack, forKey: "num")
+            NotificationCenter.default.post(name:Notification.Name("com.davidwnorman.updateEquippedSlots"), object: nil)
         
         
     }
