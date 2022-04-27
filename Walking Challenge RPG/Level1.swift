@@ -217,14 +217,31 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate, ItemButtonDelega
     }
     
     func itemButtonClicked(sender: ItemButton) {
+        var damage = round((gameStats.grayRat.baseAttack - (gameStats.heroCat.baseDefense/2))*Float.random(in: 0.9..<1.1))
+        playerHealthVariable += 10
+        var floatToString = String(format: "%.01f", playerHealthVariable) + " HP"
+
         let foundItem = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.stew)
         foundItem?.numberInStack -= 1
     numStack.set(foundItem?.numberInStack, forKey: "num")
         NotificationCenter.default.post(name:Notification.Name("com.davidwnorman.updateEquippedSlots"), object: nil)
-        playerHealthVariable += 10
+
+        playerHP.text = floatToString
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            playerHealthVariable -= damage
+            floatToString = String(format: "%.01f", playerHealthVariable) + " HP"
+
+            playerHP.text = floatToString
+
+        if (playerHealthVariable <= 0)
+        {
+            self.addChild(defeatText)
+            self.button2.size = CGSize(width: 0, height: 0)
+            return
+        }
     
         
     }
     
-    
+    }
 }
