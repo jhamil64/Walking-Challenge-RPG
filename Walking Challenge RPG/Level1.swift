@@ -8,12 +8,17 @@ var playerHP = SKLabelNode(text: String(format: "%.01f", playerHealthVariable) +
 let victoryText = SKLabelNode(text: "You Win!")
 let gainedExp = SKLabelNode(text: "Gained 5 EXP")
 let defeatText = SKLabelNode(text: "You Lose...")
+let itemText = SKLabelNode(text: "Use Item")
 let seconds = 1.0
 let grayRatSprite = SKTexture(imageNamed: "gray_rat")
 let heroCatSprite = SKSpriteNode(imageNamed: "HeroCat")
 
 protocol EnemyButtonDelegate: AnyObject {
     func enemyButtonClicked(sender: EnemyButton)
+}
+
+protocol ItemButtonDelegate: AnyObject {
+    func itemButtonClicked(sender: ItemButton)
 }
 
 class EnemyButton: SKSpriteNode {
@@ -51,7 +56,43 @@ class EnemyButton: SKSpriteNode {
     }
 }
 
-class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate {
+
+
+class ItemButton: SKSpriteNode {
+
+    //weak so that you don't create a strong circular reference with the parent
+    weak var delegate: ItemButtonDelegate!
+
+    override init(texture: SKTexture?, color: SKColor, size: CGSize) {
+
+        super.init(texture: texture, color: color, size: size)
+
+        setup()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        setup()
+    }
+
+    func setup() {
+        isUserInteractionEnabled = true
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        setScale(0.9)
+        self.delegate.itemButtonClicked(sender: self)
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        setScale(1.0)
+    }
+}
+
+class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate, ItemButtonDelegate {
+
+    
     
     func setupBattle() {
         playerHealthVariable = Walking_Challenge_RPG.gameStats.heroCat.maxHP
@@ -85,8 +126,13 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate {
         let button3 = BackButton(texture: nil, color: .black, size: CGSize(width: view.frame.width / 10, height: view.frame.height / 10))
         button3.position = CGPoint(x: view.frame.width / 100, y: view.frame.height / 1.1)
         button3.delegate = self
-                addChild(button3)
+        let itemButton = ItemButton(texture: nil, color: .white, size: CGSize(width: view.frame.width / 4, height: view.frame.height / 4))
+        itemButton.position = CGPoint(x: view.frame.width / 4, y: view.frame.height / 100)
+        itemButton.delegate = self
+        addChild(button3)
         addChild(button2)
+        addChild(itemButton)
+        
         heroCatSprite.position = CGPoint(x: view.frame.width / 4, y: view.frame.height / 2)
         heroCatSprite.setScale(3.0)
         addChild(heroCatSprite)
@@ -115,6 +161,12 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate {
         gainedExp.fontSize = 32
         gainedExp.fontColor = SKColor.orange
         gainedExp.fontName = "Helvetica"
+        
+        itemText.position = CGPoint(x: view.frame.width / 4, y: view.frame.height / 100)
+        itemText.fontSize = 24
+        itemText.fontColor = SKColor.black
+        itemText.fontName = "Helvetica"
+        addChild(itemText)
         
         
     }
@@ -161,6 +213,16 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate {
         let transition:SKTransition = SKTransition.fade(withDuration: 1)
         let scene: SKScene = LevelSelect(size: self.size)
         self.view?.presentScene(scene, transition: transition)
+        
+    }
+    
+    func itemButtonClicked(sender: ItemButton) {
+        let foundItem = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.stew)
+        foundItem?.numberInStack -= 1
+    numStack.set(foundItem?.numberInStack, forKey: "num")
+        NotificationCenter.default.post(name:Notification.Name("com.davidwnorman.updateEquippedSlots"), object: nil)
+        playerHealthVariable += 10
+    
         
     }
     

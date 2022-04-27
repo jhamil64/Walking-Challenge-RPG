@@ -79,15 +79,15 @@ class LevelSelect: SKScene, ButtonDelegate, BackButtonDelegate, Level2ButtonDele
     }
     
     func buttonClicked(sender: Button) {
-        if (completionFlag.bool(forKey: "true") == true)
-        {
-            alreadyDone.text = "Already completed this"
-        }
-        else {
+//        if (completionFlag.bool(forKey: "true") == true)
+//        {
+//            alreadyDone.text = "Already completed this"
+//        }
+//        else {
         let transition:SKTransition = SKTransition.fade(withDuration: 1)
         let scene: SKScene = Level1(size: self.size)
         self.view?.presentScene(scene, transition: transition)
-        }
+//        }
         
     }
     
