@@ -7,6 +7,7 @@ class Level2: SKScene, EnemyButtonDelegate, BackButtonDelegate {
     
     func setupBattle() {
         playerHealthVariable = Walking_Challenge_RPG.gameStats.heroCat.maxHP
+        gameStats.grayRat.maxHP = 30.0
         gameStats.grayRat.currentHP = gameStats.grayRat.maxHP
         playerHP = SKLabelNode(text: String(format: "%.01f", playerHealthVariable) + " HP")
         

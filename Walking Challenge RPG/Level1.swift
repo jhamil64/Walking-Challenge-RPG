@@ -96,6 +96,7 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate, ItemButtonDelega
     
     func setupBattle() {
         playerHealthVariable = Walking_Challenge_RPG.gameStats.heroCat.maxHP
+        gameStats.grayRat.maxHP = 10.0
         gameStats.grayRat.currentHP = gameStats.grayRat.maxHP
         playerHP = SKLabelNode(text: String(format: "%.01f", playerHealthVariable) + " HP")
         
@@ -185,11 +186,15 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate, ItemButtonDelega
             if (gameStats.grayRat.currentHP <= 0)
             {
                 self.addChild(victoryText)
-                self.addChild(gainedExp)
+                
                 self.button2.size = CGSize(width: 0, height: 0)
                 if (completionFlag.bool(forKey: "true") == false)
                 {
                     experience.set(experience.integer(forKey: "EXP")+5, forKey: "EXP")
+                    completionFlag.set(true, forKey: "true")
+                    self.addChild(gainedExp)
+                    return
+                    
                 }
                 completionFlag.set(true, forKey: "true")
                 return
