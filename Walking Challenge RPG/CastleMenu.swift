@@ -1,7 +1,7 @@
 
 import Foundation
 import SpriteKit
-
+let castleSprite = SKTexture(imageNamed: "RPGCastle")
 
 protocol BackButtonDelegate: AnyObject {
     func backButtonClicked(sender: BackButton)
@@ -130,7 +130,7 @@ class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate, InventoryButtonDe
 
         let button2 = Button(texture: nil, color: .gray, size: CGSize(width: view.frame.width / 2.8, height: view.frame.height / 3))
         let button3 = BackButton(texture: nil, color: .black, size: CGSize(width: view.frame.width / 10, height: view.frame.height / 10))
-        let button4 = InventoryButton(texture: nil, color: .white, size: CGSize(width: view.frame.width / 3.4, height: view.frame.height / 4))
+        let button4 = InventoryButton(texture: castleSprite, color: .white, size: CGSize(width: view.frame.width / 3.4, height: view.frame.height / 4))
         let button5 = ShopButton(texture: nil, color: .yellow, size: CGSize(width: view.frame.width / 8, height: view.frame.height / 6))
                 button2.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 10)
                 button2.delegate = self
