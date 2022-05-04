@@ -1,7 +1,9 @@
 
 import Foundation
 import SpriteKit
+
 let castleSprite = SKTexture(imageNamed: "RPGCastle")
+
 
 protocol BackButtonDelegate: AnyObject {
     func backButtonClicked(sender: BackButton)
@@ -112,8 +114,10 @@ class InventoryButton: SKSpriteNode {
 }
 
 
+
 class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate, InventoryButtonDelegate, ShopButtonDelegate {
     
+    let castleMenuBackground = SKSpriteNode(imageNamed: "grass")
     
     private var button = Button()
     
@@ -123,6 +127,10 @@ class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate, InventoryButtonDe
     let buttonText = SKLabelNode(text: "To World Map")
     
     override func didMove(to view: SKView) {
+        
+        castleMenuBackground.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        addChild(castleMenuBackground)
+        
         if let button = self.childNode(withName: "button") as? Button {
                     self.button = button
                     button.delegate = self
@@ -153,6 +161,7 @@ class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate, InventoryButtonDe
         self.backgroundColor = sceneColor
         
     addChild(buttonText)
+
     }
     
     func buttonClicked(sender: Button) {
@@ -182,5 +191,9 @@ class CastleMenu: SKScene, ButtonDelegate, BackButtonDelegate, InventoryButtonDe
         self.view?.presentScene(scene, transition: transition)
         
     }
+    
+    
+    
+    
     
 }
