@@ -2,6 +2,8 @@
 import Foundation
 import SpriteKit
 
+let staffIcon = SKTexture(imageNamed: "staff")
+
 protocol ExpButton1Delegate: AnyObject {
     func expButton1Clicked(sender: ExpButton1)
 }
@@ -40,6 +42,8 @@ class ExpButton1: SKSpriteNode {
 
 class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegate {
     
+
+    
     private var button = Button()
     
     var sceneColor = UIColor(red: 1.0, green: 1.0, blue: 1.0,
@@ -52,6 +56,12 @@ class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegat
     
     
     override func didMove(to view: SKView) {
+        
+        goldSaver.set(goldSaver.integer(forKey: "Gold"), forKey: "Gold")
+        currentGold.text = String(format:"%i",goldSaver.integer(forKey: "Gold"))
+        experience.set(experience.integer(forKey: "EXP"), forKey: "EXP")
+        expText.text = String(format:"%i",experience.integer(forKey: "EXP"))
+        
         if let button = self.childNode(withName: "button") as? Button {
                     self.button = button
                     button.delegate = self
@@ -67,7 +77,7 @@ class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegat
         button3.delegate = self
                 addChild(button3)
         
-        let button4 = ExpButton1(texture: nil, color: .yellow, size: CGSize(width: view.frame.width / 10, height: view.frame.height / 10))
+        let button4 = ExpButton1(texture: staffIcon, color: .yellow, size: CGSize(width: view.frame.width / 10, height: view.frame.height / 10))
         button4.position = CGPoint(x: view.frame.width / 1.6, y: view.frame.height / 2)
                 button4.delegate = self
                 addChild(button4)
@@ -113,19 +123,10 @@ class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegat
             expText.text = "Not enough exp to buy this!"
         }
         else {
-        goldSaver.set(goldSaver.integer(forKey: "Gold")+10, forKey: "Gold")
         
-        currentGold.text = String(format:"%i",goldSaver.integer(forKey: "Gold"))
-        experience.set(experience.integer(forKey: "EXP"), forKey: "EXP")
-        expText.text = String(format:"%i",experience.integer(forKey: "EXP"))
-
-        let boughtStaff = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.staff)
-            staffOwned.set(true, forKey: "staffCheck")
-            boughtStaff?.isOwned = staffOwned.bool(forKey: "staffCheck");
-            
-         
-            print(staffOwned)
-            
+            let transition:SKTransition = SKTransition.fade(withDuration: 1)
+            let scene: SKScene = StaffConfirmation(size: self.size)
+            self.view?.presentScene(scene, transition: transition)
         }
         
         

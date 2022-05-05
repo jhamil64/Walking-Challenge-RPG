@@ -18,6 +18,7 @@
 		C2172E8327FBF1C4006010AC /* ShopScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2172E8227FBF1C4006010AC /* ShopScreen.swift */; };
 		C2229E4D277EBFB200146FAE /* GameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2229E4C277EBFB200146FAE /* GameStats.swift */; };
 		C2478CDB2810A01B008C079C /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2478CDA2810A01B008C079C /* Level2.swift */; };
+		C2478CDD28232AA0008C079C /* StaffConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2478CDC28232AA0008C079C /* StaffConfirmation.swift */; };
 		C2810D192758776B00C7ACA8 /* CastleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2810D182758776B00C7ACA8 /* CastleMenu.swift */; };
 		C28FA54227309B3500477004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54127309B3500477004 /* AppDelegate.swift */; };
 		C28FA54827309B3500477004 /* TitleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28FA54727309B3500477004 /* TitleScreen.swift */; };
@@ -46,6 +47,7 @@
 		C2172E8227FBF1C4006010AC /* ShopScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopScreen.swift; sourceTree = "<group>"; };
 		C2229E4C277EBFB200146FAE /* GameStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStats.swift; sourceTree = "<group>"; };
 		C2478CDA2810A01B008C079C /* Level2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
+		C2478CDC28232AA0008C079C /* StaffConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffConfirmation.swift; sourceTree = "<group>"; };
 		C2810D122756D46E00C7ACA8 /* Walking Challenge RPG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Walking Challenge RPG-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2810D182758776B00C7ACA8 /* CastleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastleMenu.swift; sourceTree = "<group>"; };
 		C28FA53E27309B3500477004 /* Walking Challenge RPG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walking Challenge RPG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,7 @@
 		C28FA54027309B3500477004 /* Walking Challenge RPG */ = {
 			isa = PBXGroup;
 			children = (
+				C2478CDC28232AA0008C079C /* StaffConfirmation.swift */,
 				C2A3258127CDCF4200B777AE /* StatInitializer.swift */,
 				C2172E8227FBF1C4006010AC /* ShopScreen.swift */,
 				C2A3257D27CD8EC500B777AE /* Level1.swift */,
@@ -209,6 +212,7 @@
 				C2050CC027AC7CAB00188DA4 /* InventoryScene.swift in Sources */,
 				C2A3258227CDCF4200B777AE /* StatInitializer.swift in Sources */,
 				C28FA54827309B3500477004 /* TitleScreen.swift in Sources */,
+				C2478CDD28232AA0008C079C /* StaffConfirmation.swift in Sources */,
 				C2050CC227AC7CB000188DA4 /* InventorySpriteNode.swift in Sources */,
 				C2478CDB2810A01B008C079C /* Level2.swift in Sources */,
 				C28FA54A27309B3500477004 /* GameViewController.swift in Sources */,
