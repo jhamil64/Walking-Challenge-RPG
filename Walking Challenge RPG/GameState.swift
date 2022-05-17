@@ -71,7 +71,7 @@ class GameState {
         let pick_silver = InventoryItem(name:InventoryItemName.pick_silver, numberInStack: 1, isOwned: false)
         let stew = InventoryItem(name:InventoryItemName.stew, numberInStack: numStack.integer(forKey: "num"), isOwned: true)
         let sword_silver = InventoryItem(name:InventoryItemName.sword_silver,numberInStack: 1, isOwned: false)
-        let rubies = InventoryItem(name:InventoryItemName.ore_ruby, numberInStack: 1, isOwned: false)
+        let rubies = InventoryItem(name:InventoryItemName.ore_ruby, numberInStack: 1, isOwned: rubyOwned.bool(forKey: "rubyCheck"))
         let staff = InventoryItem(name:InventoryItemName.staff,numberInStack: 1, isOwned: staffOwned.bool(forKey: "staffCheck"))
         GameState.sharedInstance.inventoryStorage.append(staff)
  

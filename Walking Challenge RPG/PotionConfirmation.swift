@@ -2,11 +2,11 @@ import Foundation
 import SpriteKit
 
 
-class StaffConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
+class PotionConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
     private var button = Button()
     var sceneColor = UIColor(red: 1.0, green: 1.0, blue: 1.0,
                              alpha: 1.0)
-    let confirmationText = SKLabelNode(text: "Do you want to buy the Staff for 10 Gold?")
+    let confirmationText = SKLabelNode(text: "Do you want to buy the Stew for 10 Gold?")
     let yes = SKLabelNode(text: "Yes")
     let no = SKLabelNode(text: "No")
 
@@ -49,17 +49,11 @@ class StaffConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
         
         goldSaver.set(goldSaver.integer(forKey: "Gold")-10, forKey: "Gold")
         experience.set(experience.integer(forKey: "EXP"), forKey: "EXP")
-
-        let boughtStaff = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.staff)
-            staffOwned.set(true, forKey: "staffCheck")
-            boughtStaff?.isOwned = staffOwned.bool(forKey: "staffCheck");
-            
-         
-            print(staffOwned)
         
-        let transition:SKTransition = SKTransition.fade(withDuration: 1)
-        let scene: SKScene = ShopScreen(size: self.size)
-        self.view?.presentScene(scene, transition: transition)
+            let foundItem = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.stew)
+            foundItem?.numberInStack += 1
+        numStack.set(foundItem?.numberInStack, forKey: "num")
+            NotificationCenter.default.post(name:Notification.Name("com.davidwnorman.updateEquippedSlots"), object: nil)
         
         
     }

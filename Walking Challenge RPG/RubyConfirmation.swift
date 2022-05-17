@@ -2,11 +2,11 @@ import Foundation
 import SpriteKit
 
 
-class StaffConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
+class RubyConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
     private var button = Button()
     var sceneColor = UIColor(red: 1.0, green: 1.0, blue: 1.0,
                              alpha: 1.0)
-    let confirmationText = SKLabelNode(text: "Do you want to buy the Staff for 10 Gold?")
+    let confirmationText = SKLabelNode(text: "Do you want to buy the Ruby for 25 Gold?")
     let yes = SKLabelNode(text: "Yes")
     let no = SKLabelNode(text: "No")
 
@@ -47,16 +47,15 @@ class StaffConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
     
     func buttonClicked(sender: Button) {
         
-        goldSaver.set(goldSaver.integer(forKey: "Gold")-10, forKey: "Gold")
+        goldSaver.set(goldSaver.integer(forKey: "Gold")-25, forKey: "Gold")
         experience.set(experience.integer(forKey: "EXP"), forKey: "EXP")
 
-        let boughtStaff = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.staff)
-            staffOwned.set(true, forKey: "staffCheck")
-            boughtStaff?.isOwned = staffOwned.bool(forKey: "staffCheck");
+        let boughtRuby = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.staff)
+            rubyOwned.set(true, forKey: "rubyCheck")
+            boughtRuby?.isOwned = rubyOwned.bool(forKey: "rubyCheck");
             
          
-            print(staffOwned)
-        
+            print(rubyOwned)
         let transition:SKTransition = SKTransition.fade(withDuration: 1)
         let scene: SKScene = ShopScreen(size: self.size)
         self.view?.presentScene(scene, transition: transition)

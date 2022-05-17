@@ -3,10 +3,17 @@ import Foundation
 import SpriteKit
 
 let staffIcon = SKTexture(imageNamed: "staff")
+let stewIcon = SKTexture(imageNamed: "stew")
+let rubyIcon = SKTexture(imageNamed: "ore_ruby")
 
 protocol ExpButton1Delegate: AnyObject {
     func expButton1Clicked(sender: ExpButton1)
 }
+
+protocol ExpButton2Delegate: AnyObject {
+    func expButton2Clicked(sender: ExpButton2)
+}
+
 
 class ExpButton1: SKSpriteNode {
 
@@ -40,7 +47,39 @@ class ExpButton1: SKSpriteNode {
     }
 }
 
-class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegate {
+class ExpButton2: SKSpriteNode {
+
+    //weak so that you don't create a strong circular reference with the parent
+    weak var delegate: ExpButton2Delegate!
+
+    override init(texture: SKTexture?, color: SKColor, size: CGSize) {
+
+        super.init(texture: texture, color: color, size: size)
+
+        setup()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        setup()
+    }
+
+    func setup() {
+        isUserInteractionEnabled = true
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        setScale(0.9)
+        self.delegate.expButton2Clicked(sender: self)
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        setScale(1.0)
+    }
+}
+
+class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegate, ExpButton2Delegate {
     
 
     
@@ -67,7 +106,7 @@ class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegat
                     button.delegate = self
                 }
         
-        let button2 = Button(texture: nil, color: .green, size: CGSize(width: view.frame.width / 10, height: view.frame.height / 10))
+        let button2 = Button(texture: stewIcon, color: .green, size: CGSize(width: view.frame.width / 10, height: view.frame.height / 10))
         button2.position = CGPoint(x: view.frame.width / 1.2, y: view.frame.height / 2)
         button2.delegate = self
                 addChild(button2)
@@ -78,11 +117,16 @@ class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegat
                 addChild(button3)
         
         let button4 = ExpButton1(texture: staffIcon, color: .yellow, size: CGSize(width: view.frame.width / 10, height: view.frame.height / 10))
-        button4.position = CGPoint(x: view.frame.width / 1.6, y: view.frame.height / 2)
+        button4.position = CGPoint(x: view.frame.width / 1.5, y: view.frame.height / 2)
                 button4.delegate = self
                 addChild(button4)
         
-                title.fontSize = 32
+        let button5 = ExpButton2(texture: rubyIcon, color: .yellow, size: CGSize(width: view.frame.width / 10, height: view.frame.height / 10))
+        button5.position = CGPoint(x: view.frame.width / 2.1, y: view.frame.height / 2)
+                button5.delegate = self
+                addChild(button5)
+        
+        title.fontSize = 32
         title.fontColor = SKColor.black
         title.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 1.2)
         currentGold.fontSize = 24
@@ -104,15 +148,9 @@ class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegat
     
     func buttonClicked(sender: Button) {
 
-        goldSaver.set(goldSaver.integer(forKey: "Gold")-10, forKey: "Gold")
-        
-        currentGold.text = String(format:"%i",goldSaver.integer(forKey: "Gold"))
-        experience.set(experience.integer(forKey: "EXP"), forKey: "EXP")
-        expText.text = String(format:"%i",experience.integer(forKey: "EXP"))
-            let foundItem = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.stew)
-            foundItem?.numberInStack += 1
-        numStack.set(foundItem?.numberInStack, forKey: "num")
-            NotificationCenter.default.post(name:Notification.Name("com.davidwnorman.updateEquippedSlots"), object: nil)
+        let transition:SKTransition = SKTransition.fade(withDuration: 1)
+        let scene: SKScene = PotionConfirmation(size: self.size)
+        self.view?.presentScene(scene, transition: transition)
         
         
     }
@@ -129,6 +167,25 @@ class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegat
             self.view?.presentScene(scene, transition: transition)
         }
         
+    
+        
+        
+    }
+    
+    func expButton2Clicked(sender: ExpButton2) {
+
+        if (experience.integer(forKey: "EXP") <= 10){
+            expText.text = "Not enough exp to buy this!"
+        }
+        else {
+        
+            let transition:SKTransition = SKTransition.fade(withDuration: 1)
+            let scene: SKScene = RubyConfirmation(size: self.size)
+            self.view?.presentScene(scene, transition: transition)
+        }
+        
+    
+        
         
     }
     
@@ -140,3 +197,5 @@ class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegat
     }
     
 }
+
+

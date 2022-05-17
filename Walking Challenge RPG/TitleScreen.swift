@@ -12,6 +12,7 @@ var goldSaver = UserDefaults.standard
 var experience = UserDefaults.standard
 var completionFlag = UserDefaults.standard
 var staffOwned = UserDefaults.standard
+var rubyOwned = UserDefaults.standard
 var numStack = UserDefaults.standard
 
 
