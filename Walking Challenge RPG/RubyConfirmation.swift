@@ -6,7 +6,7 @@ class RubyConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
     private var button = Button()
     var sceneColor = UIColor(red: 1.0, green: 1.0, blue: 1.0,
                              alpha: 1.0)
-    let confirmationText = SKLabelNode(text: "Do you want to buy the Ruby for 25 Gold?")
+    let confirmationText = SKLabelNode(text: "Do you want to buy the Ruby for 255 Gold?")
     let yes = SKLabelNode(text: "Yes")
     let no = SKLabelNode(text: "No")
 
@@ -47,7 +47,7 @@ class RubyConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
     
     func buttonClicked(sender: Button) {
         
-        if (goldSaver.integer(forKey: "Gold") < 25){
+        if (goldSaver.integer(forKey: "Gold") < 255){
             confirmationText.text = "Not enough gold to buy this!"
         }
         if (rubyOwned.bool(forKey: "staffCheck") == true){
@@ -56,7 +56,7 @@ class RubyConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
         }
         else {
         
-        goldSaver.set(goldSaver.integer(forKey: "Gold")-25, forKey: "Gold")
+        goldSaver.set(goldSaver.integer(forKey: "Gold")-255, forKey: "Gold")
         experience.set(experience.integer(forKey: "EXP"), forKey: "EXP")
 
         let boughtRuby = GameState.findInventoryItemInEitherStorage(inventoryItemName: InventoryItemName.staff)

@@ -174,7 +174,7 @@ class ShopScreen: SKScene, ButtonDelegate, BackButtonDelegate, ExpButton1Delegat
     
     func expButton2Clicked(sender: ExpButton2) {
 
-        if (experience.integer(forKey: "EXP") <= 10){
+        if (experience.integer(forKey: "EXP") <= 30){
             expText.text = "Not enough exp to buy this!"
         }
         else {

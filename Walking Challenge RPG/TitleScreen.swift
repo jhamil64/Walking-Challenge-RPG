@@ -124,15 +124,15 @@ class Button: SKSpriteNode {
         if let numberOfSteps = self.numberOfSteps{
                     stepsLabel.text = String(format:"%i",numberOfSteps)
             let stepCheck1 = Int(self.numberOfSteps)
-            do{
-                sleep(2);
-            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+
             
             let stepCheck2 = Int(self.numberOfSteps)
             self.stepDifference = Int?(stepCheck2 - stepCheck1)
             let currentGold = goldSaver.integer(forKey: "Gold")+self.stepDifference
             goldSaver.set(currentGold, forKey: "Gold")
-            currentGoldLabel.text = String(format:"%i",currentGold)
+                self.currentGoldLabel.text = String(format:"%i",currentGold)
+            }
         }
 
     
