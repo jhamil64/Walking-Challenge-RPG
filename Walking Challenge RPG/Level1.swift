@@ -225,6 +225,12 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate, ItemButtonDelega
     }
     
     func itemButtonClicked(sender: ItemButton) {
+        
+        if (numStack.integer(forKey: "num") < 1){
+            itemText.text = "No Item!"
+        }
+        else {
+            itemText.text = "Use Item"
         var damage = round((gameStats.grayRat.baseAttack - (gameStats.heroCat.baseDefense/2))*Float.random(in: 0.9..<1.1))
         playerHealthVariable += 10
         var floatToString = String(format: "%.01f", playerHealthVariable) + " HP"
@@ -242,14 +248,16 @@ class Level1: SKScene, EnemyButtonDelegate, BackButtonDelegate, ItemButtonDelega
             playerHP.text = floatToString
 
         if (playerHealthVariable <= 0)
-        {
+            {
             self.addChild(defeatText)
             self.button2.size = CGSize(width: 0, height: 0)
             return
-        }
+            }
+        
     
         
-    }
+            }
+        }
     
     }
 }

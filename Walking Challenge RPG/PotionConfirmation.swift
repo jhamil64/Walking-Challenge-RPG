@@ -47,6 +47,11 @@ class PotionConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
     
     func buttonClicked(sender: Button) {
         
+        if (goldSaver.integer(forKey: "Gold") < 10){
+            confirmationText.text = "Not enough gold to buy this!"
+        }
+        else {
+        
         goldSaver.set(goldSaver.integer(forKey: "Gold")-10, forKey: "Gold")
         experience.set(experience.integer(forKey: "EXP"), forKey: "EXP")
         
@@ -54,6 +59,8 @@ class PotionConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
             foundItem?.numberInStack += 1
         numStack.set(foundItem?.numberInStack, forKey: "num")
             NotificationCenter.default.post(name:Notification.Name("com.davidwnorman.updateEquippedSlots"), object: nil)
+            confirmationText.text = "You now own \(numStack.integer(forKey: "num")) stew."
+        }
         
         
     }

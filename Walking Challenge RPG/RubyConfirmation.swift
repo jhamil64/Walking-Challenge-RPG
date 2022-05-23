@@ -47,6 +47,15 @@ class RubyConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
     
     func buttonClicked(sender: Button) {
         
+        if (goldSaver.integer(forKey: "Gold") < 25){
+            confirmationText.text = "Not enough gold to buy this!"
+        }
+        if (rubyOwned.bool(forKey: "staffCheck") == true){
+            confirmationText.text = "Already own this item"
+            
+        }
+        else {
+        
         goldSaver.set(goldSaver.integer(forKey: "Gold")-25, forKey: "Gold")
         experience.set(experience.integer(forKey: "EXP"), forKey: "EXP")
 
@@ -59,6 +68,7 @@ class RubyConfirmation: SKScene, ButtonDelegate, BackButtonDelegate {
         let transition:SKTransition = SKTransition.fade(withDuration: 1)
         let scene: SKScene = ShopScreen(size: self.size)
         self.view?.presentScene(scene, transition: transition)
+        }
         
         
     }
